@@ -1,5 +1,5 @@
 {
-  "name": "TheBlog",
+  "name": "theblog",
   "version": "1.0.0",
   "description": "Reaper's Blog",
   "main": "index.js",
@@ -23,6 +23,7 @@
   "homepage": "https://gitlab.com/Reaper622/react-cli-singlepage#README",
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
+    "antd": "^3.23.2",
     "babel-preset-react": "^6.24.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
