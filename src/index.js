@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import 'antd/dist/antd.css'
+import './index.css'
+
 import Layout from '@components/Layout'
-// import { AppContainer } from 'react-hot-loader';
 
 class App extends Component {
   render () {
