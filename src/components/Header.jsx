@@ -11,7 +11,6 @@ function TheLayout() {
     setTabKey(index)
   }, [tabKey])
   return (
-    <Layout>
       <Header className="layout-header">
         <Menu
           theme="dar"
@@ -42,14 +41,14 @@ function TheLayout() {
             </div>
           </Col>
         </Row>
-      </Header>
-      <style jsx>{`
+        <style jsx>{`
         .layout-header {
           padding: 0px;
           height: 600px;
           background: url(${BackgroundPic});
           background-size: 100%;
           position: relative;
+          margin-bottom: 75px;
         }
         .header-menu {
           width: 100%;
@@ -74,7 +73,7 @@ function TheLayout() {
           font-weight: 800;
         }
     `}</style>
-    </Layout>
+      </Header>
   )
 }
 export default TheLayout
