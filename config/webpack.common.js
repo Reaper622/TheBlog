@@ -58,7 +58,7 @@ const commonConfig = {
     }),
     new HappyPack({
       id: 'css',
-      loaders: ['style-loader', 'css-loader', 'postcss-loader'],
+      loaders: ['css-loader', 'postcss-loader'],
       threadPool: happyThreadPool
     }),
     new HappyPack({
