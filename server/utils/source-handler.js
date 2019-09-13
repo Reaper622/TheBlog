@@ -34,8 +34,7 @@ function isDir(filepath) {
             R.map(day => R.pipe(
               R.map(filename => {
                 const filePath = path.join(root, year, month, day, filename)
-                console.log(filePath)
-                fn(filePath)
+                fn(filePath, year, month, day)
                 return filePath
               }),
               R.objOf(day)
