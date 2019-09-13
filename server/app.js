@@ -1,17 +1,13 @@
 const Koa = require('koa')
 const path = require('path')
-const fs = require('fs')
 const koaStatic = require('koa-static')
+const { getData } = require('./services/db')
+const { updateBlog } = require('./controllers/articles-handler')
 
-const sourceHandler = require('./utils/source-handler')
-const articleRoot = path.join(__dirname, '../articles')
 
+getData()
 
-const result = sourceHandler.traverse(articleRoot, filePath => {
-  // 对markdown的解析
-})
-
-console.log(result)
+updateBlog()
 
 
 const app = new Koa()
