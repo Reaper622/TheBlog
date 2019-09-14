@@ -1,12 +1,17 @@
 import React, {Component} from 'react'
 import TheHeader from '@components/Header'
 import {Layout, Row, Col} from 'antd'
+import axios from 'axios'
 
 const { Content } = Layout
 
 class Index extends Component {
   constructor(props) {
     super(props)
+  }
+
+  componentWillMount() {
+    axios.get('')
   }
 
   render() {

@@ -22,7 +22,7 @@ async function getBlogs() {
   data.map(blog => {
     blog.content = fs.readFileSync(blog.path).toString()
   })
-  console.log(data)
+  return {blogs: data}
 }
 
 

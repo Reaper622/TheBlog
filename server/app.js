@@ -1,18 +1,15 @@
 const Koa = require('koa')
 const path = require('path')
 const koaStatic = require('koa-static')
+const router = require('./routers/router')
 const { getData } = require('./services/db')
 const { updateBlog, getBlogs } = require('./controllers/articles-handler')
 
 
-getData()
-
-updateBlog()
-getBlogs()
-
 
 const app = new Koa()
 
+app.use(router.routes())
 
 app.use(koaStatic(path.join(__dirname, '../dist')))
 
