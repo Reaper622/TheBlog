@@ -2,12 +2,13 @@ const Koa = require('koa')
 const path = require('path')
 const koaStatic = require('koa-static')
 const { getData } = require('./services/db')
-const { updateBlog } = require('./controllers/articles-handler')
+const { updateBlog, getBlogs } = require('./controllers/articles-handler')
 
 
 getData()
 
 updateBlog()
+getBlogs()
 
 
 const app = new Koa()

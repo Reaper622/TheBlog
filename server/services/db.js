@@ -15,10 +15,6 @@ async function insertBlogs(title, label, time, path) {
   let sql = `insert into blog (title, label, time, path)
             values
              ('${title}', '${label}', '${time}', '${path}')`
-  // let sql = `insert into blog (title, label, time, path)
-  //           select '${title}', '${label}', '${time}', '${path}'
-  //           from blog
-  //           where not exists(select * from blog where title='${title}')`
   let result = await query(sql)
   console.log(result)
   return result
@@ -27,7 +23,7 @@ async function insertBlogs(title, label, time, path) {
 // 获取博客
 async function getData() {
   let dataList = await selectAllData()
-  console.log(dataList)
+  return dataList
 }
 
 module.exports = {getData, insertBlogs}
