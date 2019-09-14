@@ -2,19 +2,28 @@ import React, {Component} from 'react'
 import TheHeader from '@components/Header'
 import {Layout, Row, Col} from 'antd'
 import axios from 'axios'
+import { connect } from 'react-redux'
+import {loadBlogs} from '../redux/store'
 
 const { Content } = Layout
 
+@connect(
+  state => state,
+  {loadBlogs}
+)
 class Index extends Component {
   constructor(props) {
     super(props)
   }
 
   componentWillMount() {
-    axios.get('')
+    this.props.loadBlogs()
   }
 
+
   render() {
+    console.log(this.props.blogs)
+
     return (
       <Layout>
         <TheHeader></TheHeader>

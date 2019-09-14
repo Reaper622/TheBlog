@@ -6,6 +6,6 @@
   "plugins": [
     "react-hot-loader/babel",
     "styled-components",
-    "transform-decorators-legacy"
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
   ]
 }
