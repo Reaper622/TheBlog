@@ -2,7 +2,7 @@ const { query } = require('../utils/db')
 
 // 获取数据库全部内容
 async function selectAllData() {
-  let sql = 'SELECT * FROM blog'
+  let sql = 'SELECT * FROM blog order by time desc'
   let data = await query(sql)
   // console.log('data',data)
   return data
