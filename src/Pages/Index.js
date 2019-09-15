@@ -31,8 +31,8 @@ class Index extends Component {
         <TheHeader></TheHeader>
         <Content>
           <Row>
-            <Col offset={4}  span={12} style={{border: '1px solid black'}} >
-              { this.props.blogs ? this.props.blogs.map(blog => <Blog key={blog.id} {...blog} />) : null}
+            <Col offset={4}  span={12} style={{}} >
+              { this.props.blogs ? this.props.blogs.map(blog => <Blog key={blog.id} {...blog} isPriview={true} />) : null}
             </Col>
           </Row>
         </Content>
