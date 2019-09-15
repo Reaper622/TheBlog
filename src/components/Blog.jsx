@@ -1,11 +1,12 @@
 import React, {useState} from 'react'
-import {Row, Col, Icon, Button, AutoComplete} from 'antd'
+import { withRouter, Link } from 'react-router-dom'
+import {Row, Col, Icon, Button} from 'antd'
 import MDRender from './MarkdownRender'
 // 折叠Markdown部分的css
 const flodMD = {height: 800, overflow: 'hidden',marginBottom: 20}
 // 展开markdown部分的css
 const openMD = {height: 'auto', marginBottom: 20}
-function Blog({title, label, time, visit, content}, isPriview) {
+function Blog({id, title, label, time, visit, content, isPriview },  ) {
 
   const [isFolded, setIsFoded] = useState(isPriview)
 
@@ -27,7 +28,9 @@ function Blog({title, label, time, visit, content}, isPriview) {
       <Row type="flex" justify="center">
         {isFolded ? 
         <Col span={2}>
-          <Button type="primary" size="default" onClick={() => setIsFoded(false)}><Icon type="down" />阅读全文</Button>
+          <Link to={`/articles/${id}`}>
+            <Button type="primary" size="default" ><Icon type="down" />阅读全文</Button>
+          </Link>
         </Col> 
         :
         null
@@ -46,4 +49,4 @@ function Blog({title, label, time, visit, content}, isPriview) {
   )
 }
 
-export default Blog
+export default withRouter(Blog)

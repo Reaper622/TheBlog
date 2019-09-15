@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import {BrowserRouter, HashRouter, Route, Switch} from 'react-router-dom'
 import {createStore, applyMiddleware, compose} from 'redux'
 import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
@@ -11,6 +11,7 @@ import './index.css'
 
 // 页面
 import Index from './Pages/Index'
+import Article from './Pages/Articles'
 
 const store = createStore(reducer, compose(
   applyMiddleware(thunk),
@@ -22,11 +23,14 @@ class App extends Component {
   render () {
     return (
       <Provider store={store}>
-        <BrowserRouter>
-          <Switch>
-            <Route path='/' exact component={Index} />
-          </Switch>
-        </BrowserRouter>
+        {/* <BrowserRouter> */}
+        <HashRouter>
+            <Switch>
+              <Route path='/' exact component={Index} />
+              <Route path='/articles/:id' component={Article} />
+            </Switch>
+          </HashRouter>
+        {/* </BrowserRouter> */}
       </Provider>
     )
   }

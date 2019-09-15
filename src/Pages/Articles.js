@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import TheHeader from '@components/Header'
 import Blog from '@components/Blog'
 import {Layout, Row, Col} from 'antd'
-import axios from 'axios'
 import { connect } from 'react-redux'
 import {loadBlogs} from '../redux/store'
 
@@ -10,28 +9,35 @@ const { Content } = Layout
 
 @connect(
   state => state,
-  {loadBlogs}
 )
-class Index extends Component {
+class Article extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      blog : {}
+    }
   }
-
-
+  
   componentWillMount() {
-    this.props.loadBlogs()
+    console.log(this.props)
+    let blog = this.props.blogs.filter(item => item.id == this.props.match.params.id)[0]
+    console.log(blog)
+    this.setState({
+      blog
+    })
   }
+
+
 
 
   render() {
-
-    return (
+  return (
       <Layout>
         <TheHeader></TheHeader>
         <Content>
           <Row>
-            <Col offset={4}  span={12} >
-              { this.props.blogs ? this.props.blogs.map(blog => <Blog key={blog.id} {...blog} isPriview={true} />) : null}
+            <Col offset={4}  span={12} style={{}} >    
+                <Blog {...this.state.blog} />
             </Col>
           </Row>
         </Content>
@@ -40,4 +46,4 @@ class Index extends Component {
   }
 }
 
-export default Index
+export default Article
