@@ -15,6 +15,7 @@ import PageLoading from '@components/PageLoading'
 // 页面
 import Index from './Pages/Index'
 import Article from './Pages/Articles'
+import Archives from './Pages/Archives'
 
 const store = createStore(reducer, compose(
   applyMiddleware(thunk),
@@ -31,6 +32,7 @@ class App extends Component {
             <Switch>
               <Route path='/' exact component={Index} />
               <Route path='/articles/:id' component={Article} />
+              <Route path='/archives' component={Archives} />
             </Switch>
           </HashRouter>
         {/* </BrowserRouter> */}

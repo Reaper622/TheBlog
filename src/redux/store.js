@@ -25,6 +25,9 @@ export function loadBlogs() {
   return dispatch => {
     axios.get('http://127.0.0.1:4000/blog/getblogs')
       .then(res => {
+        res.data.blogs.map(blog => {
+          blog.time = blog.time.split('T')[0]
+        })
         dispatch({
           type: UPLOAD_BLOGS,
           payload: res.data.blogs

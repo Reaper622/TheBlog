@@ -16,7 +16,6 @@ async function insertBlogs(title, label, time, path) {
             values
              ('${title}', '${label}', '${time}', '${path}')`
   let result = await query(sql)
-  console.log(result)
   return result
 }
 
@@ -26,4 +25,10 @@ async function getData() {
   return dataList
 }
 
-module.exports = {getData, insertBlogs}
+async function getArchives() {
+  let sql = `select * from blog group by YEAR(time)`
+  let result = await query(sql)
+  return result
+}
+
+module.exports = {getData, insertBlogs, getArchives}

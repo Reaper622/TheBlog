@@ -17,7 +17,7 @@ function Blog({id, title, label, time, visit, content, isPriview },  ) {
       </Row>
       <Row type="flex" justify="space-around">
         <Col span={6} style={{textAlign: 'center', color: '#FF3F1A'}}><Icon type="tag" />{label}</Col>
-        <Col span={6} style={{textAlign: 'center', color: '#00A7E0'}}><Icon type="calendar" />时间:{time.split('T')[0]}</Col>
+        <Col span={6} style={{textAlign: 'center', color: '#00A7E0'}}><Icon type="calendar" />时间:{time}</Col>
         <Col span={6} style={{textAlign: 'center'}}><Icon type="user" />阅读人数:{visit}</Col>
       </Row>
       <Row>
