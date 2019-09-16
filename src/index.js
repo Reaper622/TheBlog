@@ -9,6 +9,9 @@ import { reducer } from './redux/store'
 import 'antd/dist/antd.css'
 import './index.css'
 
+// 加载框
+import PageLoading from '@components/PageLoading'
+
 // 页面
 import Index from './Pages/Index'
 import Article from './Pages/Articles'
