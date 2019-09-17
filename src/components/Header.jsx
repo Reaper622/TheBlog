@@ -45,6 +45,7 @@ function TheLayout({location, history, current}) {
           <Menu.Item className="menu-item" onClick={() => switchTab('archives')} key="archives"><Icon type="folder" />归档</Menu.Item>
           <Menu.Item className="menu-item" onClick={() => switchTab('friend')} key="friend"><Icon type="team" />友链</Menu.Item>
           <Menu.Item className="menu-item" onClick={() => switchTab('message')} key="message"><Icon type="highlight" />留言</Menu.Item>
+          <a href="https://github.com/Reaper622/TheBlog" target="__blank" className="github-right" key="github"><Icon type="github" /> Fork Me</a>
         </Menu>
         <Row type="flex" justify="center" style={{marginTop: 380}}>
           <Col span={12}>
@@ -92,6 +93,12 @@ function TheLayout({location, history, current}) {
           text-align: center;
           font-size: 24px;
           font-weight: 800;
+        }
+        .github-right {
+          color: #fff;
+          font-size: 20px;
+          float: right;
+          margin-right: 20px;
         }
     `}</style>
     <style global jsx>
