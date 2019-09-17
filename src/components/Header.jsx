@@ -14,6 +14,9 @@ const LinkMeMore = (
       <Menu.Item className="menu-item drop-item" key="juejin" >
         <a style={{color: '#fff'}} target="_blank" href="https://juejin.im/user/5ba1aed3e51d453eb93d4dfd">掘金</a>
       </Menu.Item>
+      <Menu.Item className="menu-item drop-item" key="gmail" >
+        <a style={{color: '#fff'}} target="_blank" href="mailto:reaperlee622@gmail.com">Gmail</a>
+      </Menu.Item>
   </Menu>
 )
 
