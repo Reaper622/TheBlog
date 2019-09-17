@@ -17,10 +17,9 @@ const LinkMeMore = (
   </Menu>
 )
 
-function TheLayout({location, history}) {
-  console.log(location)
-  console.log(history)
-  const [tabKey, setTabKey] = useState('index')
+function TheLayout({location, history, current}) {
+  console.log(current)
+  const [tabKey, setTabKey] = useState(current || 'index')
   const switchTab = useCallback((index) => {
     setTabKey(index)
     history.push(index)
