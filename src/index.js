@@ -8,6 +8,7 @@ import { reducer } from './redux/store'
 
 import 'antd/dist/antd.css'
 import './index.css'
+import 'animate.css/animate.min.css'
 
 // 加载框
 import PageLoading from '@components/PageLoading'

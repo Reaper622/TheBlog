@@ -21,8 +21,8 @@ const LinkMeMore = (
 )
 
 function TheLayout({location, history, current}) {
-  console.log(current)
   const [tabKey, setTabKey] = useState(current || 'index')
+  const [isAvatarHover, setIsAvatarHover] = useState(false)
   const switchTab = useCallback((index) => {
     setTabKey(index)
     history.push(index)
@@ -52,7 +52,7 @@ function TheLayout({location, history, current}) {
             <div className="intro">
               <Row type="flex" justify="center" style={{paddingTop: '10px'}}>
                 <Col span={4}>
-                  <img src={AvatarPic} alt="头像" style={{width: '100%', borderRadius: '50%'}} />
+                  <img src={AvatarPic} alt="头像" onMouseEnter={() => setIsAvatarHover(true)} onMouseOut={() => setIsAvatarHover(false)}  className={isAvatarHover? 'animated swing duration-2s' : ''} style={{width: '100%', borderRadius: '50%'}} />
                 </Col>
               </Row>
               <Row type="flex" justify="center">
