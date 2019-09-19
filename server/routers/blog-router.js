@@ -7,6 +7,11 @@ router.get('/getblogs', async (ctx) => {
   ctx.body = await articleHandler.getBlogs()
 })
 
+router.get('/getblogs/:page', async (ctx) => {
+  const page = ctx.params.page
+  ctx.body = await articleHandler.getBlogByPage(page)
+})
+
 // router.get('/getarchives', async (ctx) => {
 //   ctx.set('Content-Type', 'application')
 //   ctx.body = await archives.getBlogsArchives()

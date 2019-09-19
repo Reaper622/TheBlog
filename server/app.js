@@ -5,13 +5,13 @@ const router = require('./routers/router')
 const bodyParser = require('koa-bodyparser')
 const cors = require('koa2-cors')
 const { getData } = require('./services/db')
-const { updateBlog, getBlogs } = require('./controllers/articles-handler')
+const { updateBlog, getBlogs, getBlogByPage } = require('./controllers/articles-handler')
 
 
 
 const app = new Koa()
 
-updateBlog()
+// updateBlog()
 
 // 允许跨域
 app.use(cors({

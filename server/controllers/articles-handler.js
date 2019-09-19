@@ -1,6 +1,6 @@
 const path = require('path')
 const fs = require('fs')
-const { insertBlogs, getData } = require('../services/db')
+const { insertBlogs, getData, getBlogPage, getBlogCount } = require('../services/db')
 
 const sourceHandler = require('../utils/source-handler')
 const articleRoot = path.join(__dirname, '../../articles')
@@ -18,12 +18,25 @@ async function updateBlog() {
 // 获取博客信息
 async function getBlogs() {
   const data = await getData()
+  const num = await getBlogCount()
   // 读取markdown文件信息
   data.map(blog => {
     blog.content = fs.readFileSync(blog.path).toString()
   })
-  return {blogs: data}
+  return {blogs: data, blogCount: num}
+}
+
+// 分页获取博客信息
+async function getBlogByPage(page) {
+  const data = await getBlogPage(page)
+  const num = await getBlogCount()
+  data.map(blog => {
+    blog.content = fs.readFileSync(blog.path).toString()
+  })
+  return {blogs: data, blogCount: num}
 }
 
 
-module.exports = { updateBlog, getBlogs }
+
+
+module.exports = { updateBlog, getBlogs, getBlogByPage }
