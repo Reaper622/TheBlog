@@ -10,17 +10,17 @@ async function selectAllData() {
 
 // 获取分页博客内容
 async function getBlogPage(page) {
-  let pageIndex = page * 10
-  let sql = `SELECT * FROM blog order by time desc limit ${pageIndex}, 10`;
+  let pageIndex = page * 5
+  let sql = `SELECT * FROM blog order by time desc limit ${pageIndex}, 5`;
   let data = await query(sql)
   return data
 }
 
 // 获取当前博客数量
 async function getBlogCount() {
-  let sql = 'SELECT COUNT(*) FROM blog'
+  let sql = 'SELECT COUNT(id) FROM blog'
   let data = await query(sql)
-  return data
+  return data[0]['COUNT(id)']
 }
 
 
