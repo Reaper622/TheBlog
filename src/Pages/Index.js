@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import TheHeader from '@components/Header'
+import TheFooter from '@components/Footer'
 import Blog from '@components/Blog'
 import {Layout, Row, Col} from 'antd'
-import axios from 'axios'
 import { connect } from 'react-redux'
 import {loadBlogs} from '../redux/store'
 
@@ -35,6 +35,7 @@ class Index extends Component {
             </Col>
           </Row>
         </Content>
+        <TheFooter></TheFooter>
       </Layout>
     )
   }
