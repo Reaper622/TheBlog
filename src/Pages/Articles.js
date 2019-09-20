@@ -3,7 +3,7 @@ import TheHeader from '@components/Header'
 import Blog from '@components/Blog'
 import {Layout, Row, Col} from 'antd'
 import { connect } from 'react-redux'
-import {loadBlogs} from '../redux/store'
+import Axios from 'axios'
 
 const { Content } = Layout
 
@@ -13,18 +13,27 @@ const { Content } = Layout
 class Article extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      blog : {}
-    }
+    this.state = {}
   }
   
   componentWillMount() {
-    console.log(this.props)
-    let blog = this.props.blogs.filter(item => item.id == this.props.match.params.id)[0]
-    console.log(blog)
-    this.setState({
-      blog
-    })
+    let id = this.props.match.params.id
+    if (this.props.blogs) {
+      let theBlog = this.props.blogs.filter(item => item.id == id)[0]
+      this.setState({
+        blog: theBlog
+      })
+    } else {
+      this.getSingleBlog(id)
+    }
+  }
+
+  getSingleBlog(id) {
+    Axios.get(`http://127.0.0.1:4000/blog/getsingleblog/${id}`)
+      .then(res => {
+        res.data.time = res.data.time.split('T')[0]
+        this.setState({blog: res.data})
+      })
   }
 
 
@@ -36,8 +45,8 @@ class Article extends Component {
         <TheHeader></TheHeader>
         <Content>
           <Row>
-            <Col offset={4}  span={12} style={{}} >    
-                <Blog {...this.state.blog} />
+            <Col offset={4}  span={12} >    
+              {this.state.blog  ? <Blog {...this.state.blog} /> : 456 }  
             </Col>
           </Row>
         </Content>

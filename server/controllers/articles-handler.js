@@ -1,6 +1,6 @@
 const path = require('path')
 const fs = require('fs')
-const { insertBlogs, getData, getBlogPage, getBlogCount } = require('../services/db')
+const { insertBlogs, getData, getBlogPage, getBlogCount, getSingleBlog } = require('../services/db')
 
 const sourceHandler = require('../utils/source-handler')
 const articleRoot = path.join(__dirname, '../../articles')
@@ -36,7 +36,14 @@ async function getBlogByPage(page) {
   return {blogs: data, blogCount: num}
 }
 
+async function getSingleBlogContent(id) {
+  const arr = await getSingleBlog(id)
+  const data = arr[0]
+  data.content = fs.readFileSync(data.path).toString()
+  return data
+}
 
 
 
-module.exports = { updateBlog, getBlogs, getBlogByPage }
+
+module.exports = { updateBlog, getBlogs, getBlogByPage, getSingleBlogContent }

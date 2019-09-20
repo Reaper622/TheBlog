@@ -25,33 +25,21 @@ export function reducer(state=initState, action) {
 
 // action creators
 // 加载博客
-export function loadBlogs() {
+export function loadBlogs(data) {
   return dispatch => {
-    axios.get('http://127.0.0.1:4000/blog/getblogs')
-      .then(res => {
-        res.data.blogs.map(blog => {
-          blog.time = blog.time.split('T')[0]
-        })
-        dispatch({
-          type: UPLOAD_BLOGS,
-          payload: res.data
-        })
-      })
+    dispatch({
+      type: UPLOAD_BLOGS,
+      payload: data
+    })
   }
 }
 
 // 分页加载博客
-export function loadBlogsByPage(page) {
+export function loadBlogsByPage(data) {
   return dispatch => {
-    axios.get(`http://127.0.0.1:4000/blog/getblogs/${page}`)
-      .then(res => {
-        res.data.blogs.map(blog => {
-          blog.time = blog.time.split('T')[0]
-        })
         dispatch({
           type: GET_BLOGS_BY_PAGE,
-          payload: res.data
+          payload: data
         })
-      })
   }
 }

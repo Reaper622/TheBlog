@@ -1,9 +1,11 @@
 import React, {Component} from 'react'
 import TheHeader from '@components/Header'
 import {Link} from 'react-router-dom'
+import Axios from 'axios'
 import {Layout, Row, Col} from 'antd'
 import { connect } from 'react-redux'
 import {loadBlogs} from '../redux/store'
+import TheFooter from '@components/Footer'
 
 const { Content } = Layout
 
@@ -28,10 +30,18 @@ class Archives extends Component {
   }
 
 
-  componentWillMount() {
-    if (!this.props.blogs) {
-      this.props.loadBlogs()
-    }
+  componentDidMount() {
+    this.getArchives()
+  }
+
+  getArchives() {
+    Axios.get('http://127.0.0.1:4000/blog/getblogs')
+      .then(res => {
+        res.data.blogs.map(blog => {
+          blog.time = blog.time.split('T')[0]
+        })
+        this.props.loadBlogs(res.data)
+      })
   }
 
 
@@ -51,6 +61,7 @@ class Archives extends Component {
             </Col>
           </Row>
         </Content>
+        <TheFooter></TheFooter>
         <style jsx>{`
             .articleLink {
               color: #666;

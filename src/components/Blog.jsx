@@ -6,7 +6,7 @@ import MDRender from './MarkdownRender'
 const flodMD = {height: 800, overflow: 'hidden',marginBottom: 20}
 // 展开markdown部分的css
 const openMD = {height: 'auto', marginBottom: 20}
-function Blog({id, title, label, time, visit, content, isPriview },  ) {
+function Blog({id, title, label, time, visit, content, isPriview=false }) {
 
   const [isFolded, setIsFoded] = useState(isPriview)
 

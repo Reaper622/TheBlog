@@ -4,7 +4,13 @@ const { query } = require('../utils/db')
 async function selectAllData() {
   let sql = 'SELECT * FROM blog order by time desc'
   let data = await query(sql)
-  // console.log('data',data)
+  return data
+}
+
+// 获取单个博客内容
+async function getSingleBlog(id) {
+  let sql = `SELECT * FROM blog where id = ${id} `
+  let data = await query(sql)
   return data
 }
 
@@ -51,5 +57,6 @@ module.exports = {
   insertBlogs, 
   getArchives, 
   getBlogPage,
-  getBlogCount
+  getBlogCount,
+  getSingleBlog
 }

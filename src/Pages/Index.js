@@ -2,7 +2,8 @@ import React, {Component} from 'react'
 import TheHeader from '@components/Header'
 import TheFooter from '@components/Footer'
 import Blog from '@components/Blog'
-import {Layout, Row, Col, Pagination, Skeleton, Spin} from 'antd'
+import Axios from 'axios'
+import {Layout, Row, Col, Pagination, Spin} from 'antd'
 import { connect } from 'react-redux'
 import {loadBlogsByPage} from '../redux/store'
 
@@ -21,29 +22,29 @@ class Index extends Component {
   }
 
 
-  componentWillMount() {
-    this.props.loadBlogsByPage(0)
-  }
 
   componentDidMount() {
-    setTimeout(() => {
-      this.setState({ loading: false})
-    }, 2000)
+    this.getBlogs(0)
+  }
+
+  getBlogs(page) {
+    this.setState({ loading: true})
+    Axios.get(`http://127.0.0.1:4000/blog/getblogs/${page}`)
+      .then(res => {
+        res.data.blogs.map(blog => {
+          blog.time = blog.time.split('T')[0]
+        })
+        this.setState({ loading: false})
+        this.props.loadBlogsByPage(res.data)
+      })
   }
 
   handlePageChange(page) {
-    this.setState({ loading: true})
-    this.props.loadBlogsByPage(page - 1)
-    setTimeout(() => {
-      this.setState({ loading: false})
-    }, 2000)
-     
     
+    this.getBlogs(page - 1)
   }
 
-
   render() {
-    // const pageNum = Math.ceil(this.props.blogCount / 10) ;
     return (
       <Layout>
         <TheHeader></TheHeader>
