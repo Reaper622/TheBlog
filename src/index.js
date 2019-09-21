@@ -17,6 +17,7 @@ import PageLoading from '@components/PageLoading'
 import Index from './Pages/Index'
 import Article from './Pages/Articles'
 import Archives from './Pages/Archives'
+import Friend from './Pages/Friend'
 
 const store = createStore(reducer, compose(
   applyMiddleware(thunk),
@@ -34,6 +35,7 @@ class App extends Component {
               <Route path='/' exact component={Index} />
               <Route path='/articles/:id' component={Article} />
               <Route path='/archives' component={Archives} />
+              <Route path='/friend' component={Friend} />
             </Switch>
           </HashRouter>
         {/* </BrowserRouter> */}
