@@ -18,6 +18,7 @@ class Article extends Component {
   
   componentWillMount() {
     let id = this.props.match.params.id
+    this.plusvisit(id)
     if (this.props.blogs) {
       let theBlog = this.props.blogs.filter(item => item.id == id)[0]
       this.setState({
@@ -34,6 +35,10 @@ class Article extends Component {
         res.data.time = res.data.time.split('T')[0]
         this.setState({blog: res.data})
       })
+  }
+
+  plusvisit(id) {
+    Axios.get(`http://127.0.0.1:4000/blog/plusvisit/${id}`)
   }
 
 

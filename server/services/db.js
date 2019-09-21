@@ -40,11 +40,19 @@ async function insertBlogs(title, label, time, path) {
   return result
 }
 
+// 增加阅读数
+async function setBlogRead(id) {
+  let sql = `update blog set visit = visit + 1 where id = ${id}`
+  let result = await query(sql)
+  return result
+}
+
 // 获取博客
 async function getData() {
   let dataList = await selectAllData()
   return dataList
 }
+
 
 async function getArchives() {
   let sql = `select * from blog group by YEAR(time)`
@@ -58,5 +66,6 @@ module.exports = {
   getArchives, 
   getBlogPage,
   getBlogCount,
-  getSingleBlog
+  getSingleBlog,
+  setBlogRead
 }
