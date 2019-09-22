@@ -86,7 +86,7 @@ const commonConfig = {
       // 定义拷贝的目标目录
       to: path.resolve(__dirname, '../dist/static'),
       // 忽略拷贝指定的文件
-      ignore: ['.*']
+      // ignore: ['.*']
 
     }])
   ],

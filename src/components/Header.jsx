@@ -36,7 +36,7 @@ function TheLayout({location, history, current}) {
           className="header-menu"
         >
           <Menu.Item className="menu-item" onClick={() => switchTab('')} key="index"><Icon type="home" />首页</Menu.Item>
-          <Menu.Item className="menu-item" onClick={() => switchTab('link')} key="link">
+          <Menu.Item className="menu-item" key="link">
             <Dropdown overlay={LinkMeMore} placement="bottomCenter" trigger={['hover']} overlayStyle={{width: 100, backgroundColor: 'rgba(122, 123, 126, 0.5)'}}>
               <span><Icon type="link" />Link Me</span>
             </Dropdown>
@@ -44,7 +44,7 @@ function TheLayout({location, history, current}) {
           <Menu.Item className="menu-item" onClick={() => switchTab('resume')} key="resume"><Icon type="solution" />简历</Menu.Item>
           <Menu.Item className="menu-item" onClick={() => switchTab('archives')} key="archives"><Icon type="folder" />归档</Menu.Item>
           <Menu.Item className="menu-item" onClick={() => switchTab('friend')} key="friend"><Icon type="team" />友链</Menu.Item>
-          <Menu.Item className="menu-item" onClick={() => switchTab('message')} key="message"><Icon type="highlight" />留言</Menu.Item>
+          {/* <Menu.Item className="menu-item" onClick={() => switchTab('message')} key="message"><Icon type="highlight" />留言</Menu.Item> */}
           <a href="https://github.com/Reaper622/TheBlog" target="__blank" className="github-right" key="github"><Icon type="github" /> Fork Me</a>
         </Menu>
         <Row type="flex" justify="center" style={{marginTop: 380}}>
