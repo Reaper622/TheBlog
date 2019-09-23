@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react'
 import {withRouter, Link} from 'react-router-dom'
 import { Layout, Menu, Icon, Row, Col, Avatar, Dropdown } from 'antd'
 import BackgroundPic from '@assets/bg.jpg'
-import AvatarPic from '@assets/avatar.jpg'
+import config from '../../config.json'
 
 const { Header, Content, Footer } = Layout
 
@@ -52,12 +52,12 @@ function TheLayout({location, history, current}) {
             <div className="intro">
               <Row type="flex" justify="center" style={{paddingTop: '10px'}}>
                 <Col span={4}>
-                  <img src={AvatarPic} alt="头像" onMouseEnter={() => setIsAvatarHover(true)} onMouseOut={() => setIsAvatarHover(false)}  className={isAvatarHover? 'animated swing duration-2s' : ''} style={{width: '100%', borderRadius: '50%'}} />
+                  <img src={config.avatar_url} alt="头像" onMouseEnter={() => setIsAvatarHover(true)} onMouseOut={() => setIsAvatarHover(false)}  className={isAvatarHover? 'animated swing duration-2s' : ''} style={{width: '100%', borderRadius: '50%'}} />
                 </Col>
               </Row>
               <Row type="flex" justify="center">
                 <Col span={20} className="bio">
-                  Grow strong or die out.
+                  {config.bio}
                 </Col>
               </Row>
             </div>
