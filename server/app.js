@@ -11,7 +11,7 @@ const { updateBlog, getBlogs, getBlogByPage } = require('./controllers/articles-
 
 const app = new Koa()
 
-// updateBlog()
+updateBlog()
 
 // 允许跨域
 app.use(cors({
