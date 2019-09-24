@@ -8,7 +8,8 @@
     "build": "npm run dll && npm run build:no-dll",
     "dll": "webpack --config ./config/webpack.dll.config.js",
     "dev": "webpack-dev-server --config ./config/webpack.common.js",
-    "build:no-dll": "webpack --env.production --config ./config/webpack.common.js"
+    "build:no-dll": "webpack --env.production --config ./config/webpack.common.js",
+    "server": "node server/app.js"
   },
   "repository": {
     "type": "git",
