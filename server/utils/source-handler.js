@@ -18,7 +18,7 @@ function isDir(filepath) {
  * 构建文件树 解析markdown文件
  * 目录结构为:
  *  root
- * |-- label
+ * |-- label 标签
  *    |-- year 年份
  *        |-- month 月份
  *            |-- day 日期
