@@ -6,6 +6,8 @@ A system to build your own blog site.
 
 修改一个配置文件，即可搭建出你自己的博客平台。
 
+线上演示地址: [reaperlee.cn](www.reaperlee.cn)
+
 
 
 ### 使用环境
@@ -50,6 +52,7 @@ articles/
                  |-- filename 文件
 ```
 
+- 在数据库中创建数据表，执行`createSQL.sql`
 - 执行打包命令
 
 ```
