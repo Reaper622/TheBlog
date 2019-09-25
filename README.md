@@ -1,4 +1,7 @@
 # TheBlog
+
+[![GitHub license](https://img.shields.io/github/license/Reaper622/TheBlog)](https://github.com/Reaper622/TheBlog/blob/master/LICENSE) ![](https://img.shields.io/badge/version-1.0.0-blue)
+
 A system to build your own blog site.
 
 修改一个配置文件，即可搭建出你自己的博客平台。
@@ -10,6 +13,7 @@ A system to build your own blog site.
 - node  >= v8
 - mysql
 - npm
+- React脚手架基于 [**MisLab-React-Cli-SinglePage**](https://github.com/mis-lab/MisLab-React-Cli-SinglePage)
 
 
 
