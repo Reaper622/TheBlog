@@ -5,6 +5,7 @@ import Blog from '@components/Blog'
 import {Layout, Row, Col} from 'antd'
 import { connect } from 'react-redux'
 import Axios from 'axios'
+import config from '../../config.json'
 
 const { Content } = Layout
 
@@ -31,7 +32,7 @@ class Article extends Component {
   }
 
   getSingleBlog(id) {
-    Axios.get(`http://127.0.0.1:4000/blog/getsingleblog/${id}`)
+    Axios.get(`${config.server_url}/blog/getsingleblog/${id}`)
       .then(res => {
         res.data.time = res.data.time.split('T')[0]
         this.setState({blog: res.data})
@@ -39,7 +40,7 @@ class Article extends Component {
   }
 
   plusvisit(id) {
-    Axios.get(`http://127.0.0.1:4000/blog/plusvisit/${id}`)
+    Axios.get(`${config.server_url}/blog/plusvisit/${id}`)
   }
 
 

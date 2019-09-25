@@ -6,6 +6,7 @@ import Axios from 'axios'
 import {Layout, Row, Col, Pagination, Spin} from 'antd'
 import { connect } from 'react-redux'
 import {loadBlogsByPage} from '../redux/store'
+import config from '../../config.json'
 
 const { Content } = Layout
 
@@ -29,7 +30,7 @@ class Index extends Component {
 
   getBlogs(page) {
     this.setState({ loading: true})
-    Axios.get(`http://127.0.0.1:4000/blog/getblogs/${page}`)
+    Axios.get(`${config.server_url}/blog/getblogs/${page}`)
       .then(res => {
         res.data.blogs.map(blog => {
           blog.time = blog.time.split('T')[0]

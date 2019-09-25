@@ -6,6 +6,7 @@ import {Layout, Row, Col} from 'antd'
 import { connect } from 'react-redux'
 import {loadBlogs} from '../redux/store'
 import TheFooter from '@components/Footer'
+import config from '../../config.json'
 
 const { Content } = Layout
 
@@ -35,7 +36,7 @@ class Archives extends Component {
   }
 
   getArchives() {
-    Axios.get('http://127.0.0.1:4000/blog/getblogs')
+    Axios.get(`${config.server_url}/blog/getblogs`)
       .then(res => {
         res.data.blogs.map(blog => {
           blog.time = blog.time.split('T')[0]
