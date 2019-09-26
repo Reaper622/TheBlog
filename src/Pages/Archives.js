@@ -49,7 +49,7 @@ class Archives extends Component {
   render() {
     return (
       <Layout>
-        <TheHeader  current={'archives'}></TheHeader>
+        <TheHeader></TheHeader>
         <Content>
           <Row>
             <Col offset={4}  span={12}  style={{background: '#fff', minHeight: '600px' , padding: '20px 0'}}>

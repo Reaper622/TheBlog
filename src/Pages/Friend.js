@@ -41,7 +41,7 @@ class Friend extends Component {
   render() {
     return (
       <Layout>
-        <TheHeader  current={'friend'}></TheHeader>
+        <TheHeader></TheHeader>
         <Content>
           <Row>
             <Col offset={4}  span={12}  style={{background: '#fff', minHeight: '600px' , padding: '20px 50px'}}>

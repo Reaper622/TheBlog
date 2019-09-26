@@ -20,8 +20,8 @@ const LinkMeMore = (
   </Menu>
 )
 
-function TheLayout({location, history, current}) {
-  const [tabKey, setTabKey] = useState(current || 'index')
+function TheLayout({location, history}) {
+  const [tabKey, setTabKey] = useState(location.pathname.split('/')[1] || 'index')
   const [isAvatarHover, setIsAvatarHover] = useState(false)
   const switchTab = useCallback((index) => {
     setTabKey(index)
