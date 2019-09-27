@@ -7,5 +7,6 @@
     "react-hot-loader/babel",
     "styled-components",
     ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    "@babel/plugin-syntax-dynamic-import"
   ]
 }
