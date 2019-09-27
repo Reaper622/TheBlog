@@ -6,7 +6,7 @@ A system to build your own blog site.
 
 修改一个配置文件，即可搭建出你自己的博客平台。
 
-线上演示地址: [reaperlee.cn](www.reaperlee.cn)
+线上演示地址: [reaperlee.cn](http://www.reaperlee.cn)
 
 
 

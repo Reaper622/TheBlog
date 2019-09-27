@@ -1,3 +1,4 @@
+import React from 'react'
 import { Spin } from 'antd'
 
 export default () => (
@@ -10,7 +11,7 @@ export default () => (
                 top: 0;
                 right: 0;
                 bottom: 0;
-                background: rgba(255,255,255,0.3);
+                background: rgba(255,255,255,0.2);
                 z-index: 10001;
                 display: flex;
                 align-items: center;
