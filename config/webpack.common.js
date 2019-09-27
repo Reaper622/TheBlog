@@ -77,7 +77,8 @@ const commonConfig = {
       threadPool: happyThreadPool
     }),
     new HtmlWebpackPlugin({
-      template: 'public/index.html'
+      template: 'public/index.html',
+      favicon: 'public/favicon.ico'
     }),
     // 拷贝的静态资源不做打包处理
     new CopyWebpackPlugin([{
