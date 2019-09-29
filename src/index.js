@@ -7,7 +7,7 @@ import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 import { reducer } from './redux/store'
 
-import 'antd/dist/antd.css'
+// import 'antd/dist/antd.css'
 import './index.css'
 import 'animate.css/animate.min.css'
 

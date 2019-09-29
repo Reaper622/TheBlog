@@ -4,6 +4,7 @@
     "@babel/preset-react"
   ],
   "plugins": [
+    ["import", {"libraryName": "antd", "libraryDirectory": "es", "style": "css"}],
     "react-hot-loader/babel",
     "styled-components",
     ["@babel/plugin-proposal-decorators", { "legacy": true }],
