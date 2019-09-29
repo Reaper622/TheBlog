@@ -9,7 +9,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const prodConfig = {
   mode: 'production',
-  devtool: 'cheap-module-source-map',
+  // devtool: 'cheap-module-source-map',
   resolve: {
     // 针对npm中的第三方模块优先用jsnext:main指向ES6模块化语法的的文件
     mainFields: ['jsnext:main', 'browser', 'main']
