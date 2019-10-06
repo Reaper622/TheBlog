@@ -78,7 +78,7 @@ const commonConfig = {
     }),
     new HtmlWebpackPlugin({
       template: 'public/index.html',
-      favicon: 'public/favicon.ico'
+      favicon: 'public/favicon.ico',
     }),
     // 拷贝的静态资源不做打包处理
     new CopyWebpackPlugin([{
@@ -89,6 +89,10 @@ const commonConfig = {
       // 忽略拷贝指定的文件
       // ignore: ['.*']
 
+    },
+    {
+      from: path.resolve(__dirname, '../public/manifest.json'),
+      to: path.resolve(__dirname, '../dist'),
     }])
   ],
   output: {
