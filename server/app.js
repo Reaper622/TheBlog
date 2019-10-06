@@ -4,6 +4,9 @@ const koaStatic = require('koa-static')
 const router = require('./routers/router')
 const bodyParser = require('koa-bodyparser')
 const cors = require('koa2-cors')
+const https = require('https')
+const fs = require('fs')
+const sslify = require('koa-sslify').default
 const { getData } = require('./services/db')
 const { updateBlog, getBlogs, getBlogByPage } = require('./controllers/articles-handler')
 
@@ -12,6 +15,9 @@ const { updateBlog, getBlogs, getBlogByPage } = require('./controllers/articles-
 const app = new Koa()
 
 updateBlog()
+
+// 强制转化 http 请求为 https
+app.use(sslify());
 
 // 允许跨域
 app.use(cors({
@@ -32,6 +38,11 @@ app.use(router.routes()).use(router.allowedMethods())
 
 app.use(koaStatic(path.join(__dirname, '../dist')))
 
-app.listen(4000, () => {
-  console.log('Server is running at 4000')
+const options = {
+  key: fs.readFileSync(path.join(__dirname, './ssl/ssl.key')),
+  cert: fs.readFileSync(path.join(__dirname, './ssl/ssl.crt'))
+}
+
+https.createServer(options, app.callback()).listen(4000, () => {
+  console.log(`Server is running at 4000 port`)
 })

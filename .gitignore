@@ -15,3 +15,6 @@ config.js
 
 # 文章
 /articles
+
+# ssl 证书
+/server/ssl
