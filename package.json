@@ -1,6 +1,6 @@
 {
   "name": "theblog",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "Reaper's Blog",
   "main": "index.js",
   "scripts": {
@@ -85,6 +85,8 @@
     "url-loader": "^1.1.2",
     "webpack-cli": "^3.3.2",
     "webpack-merge": "^4.2.1",
-    "webpack-parallel-uglify-plugin": "^1.1.0"
+    "webpack-parallel-uglify-plugin": "^1.1.0",
+    "https": "^1.0.0",
+    "koa-sslify": "^4.0.3"
   }
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import {Layout, Row, Col, Icon} from 'antd'
+import BeiAnIcon from '@assets/beian.png'
 
 const {Footer} = Layout 
 
@@ -14,7 +15,7 @@ function TheFooter () {
       </Row>
       <Row type="flex" justify="center">
         <Col span={12} style={{textAlign: 'center'}}>
-          ©Copyright 2019 Reaper622 | 豫ICP备19033565
+          ©Copyright 2019 Reaper622 | 豫ICP备 19033565 | <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=41018202000704"> <img src={BeiAnIcon} /> 豫公网安备 41018202000704 号</a>
         </Col>
       </Row>
       <Row type="flex" justify="center">
