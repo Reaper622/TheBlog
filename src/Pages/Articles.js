@@ -18,7 +18,7 @@ class Article extends Component {
     this.state = {}
   }
   
-  componentWillMount() {
+  componentDidMount() {
     let id = this.props.match.params.id
     this.plusvisit(id)
     if (this.props.blogs) {

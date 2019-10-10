@@ -3,8 +3,9 @@ import {withRouter, Link} from 'react-router-dom'
 import { Layout, Menu, Icon, Row, Col, Avatar, Dropdown } from 'antd'
 import BackgroundPic from '@assets/bg.jpg'
 import config from '../../config.json'
+import ScrollTop from './ScrollTop'
 
-const { Header, Content, Footer } = Layout
+const { Header } = Layout
 
 const LinkMeMore = (
   <Menu style={{background: 'rgba(122, 123, 126, 0.5)'}}>
@@ -29,6 +30,7 @@ function TheLayout({location, history}) {
   }, [tabKey])
   return (
       <Header className="layout-header">
+        <ScrollTop />
         <Menu
           theme="dar"
           mode="horizontal"
