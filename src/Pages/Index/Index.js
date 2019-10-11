@@ -1,15 +1,17 @@
 import React, {Component} from 'react'
-import TheHeader from '@components/Header'
-import TheFooter from '@components/Footer'
-import Blog from '@components/Blog'
+import TheHeader from '@components/Header/Header'
+import TheFooter from '@components/Footer/Footer'
+import Blog from '@components/Blog/Blog'
 import Axios from 'axios'
 import {Layout, Row, Col, Pagination} from 'antd'
 import { connect } from 'react-redux'
-import {loadBlogsByPage} from '../redux/store'
-import config from '../../config.json'
+import {loadBlogsByPage} from '../../redux/store'
+import config from '../../../config.json'
 import { CSSTransition } from 'react-transition-group'
 
 const { Content } = Layout
+
+import './Index.styl'
 
 @connect(
   state => state,
@@ -69,34 +71,6 @@ class Index extends Component {
           </Row>
         </Content>
         <TheFooter></TheFooter>
-        <style jsx>{`
-            /* enter 为入场前的瞬间， appear指页面第一次加载前的瞬间（auto） */
-            .fade-enter, .fade-appear {
-              opacity: 0;
-            }
-            /* enter-active 为入场到入场结束的过程 appear-active 为页面第一次自动执行 */
-            .fade-enter-active, .fade-appear-active {
-              opacity: 1;
-              transition: opacity 1s ease-in;
-            }
-            /* 入场动画执行完毕后, 保持状态 */
-            .fade-enter-done {
-              opacity: 1;
-            }
-            /*出厂前的瞬间 */
-            .fade-exit {
-              opacity: 1;
-            }
-            /*出场到出场结束的过程 */
-            .fade-exit-active {
-              opacity: 0;
-              transition: opacity 1s ease-in;
-            }
-            /*出场动画执行后保持状态 */
-            .fade-exit-done {
-              opacity: 0;
-            }
-          `}</style>
       </Layout>
     )
   }

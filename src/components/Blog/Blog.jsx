@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { withRouter, Link } from 'react-router-dom'
 import {Row, Col, Icon, Button} from 'antd'
-import MDRender from './MarkdownRender'
+import MDRender from '../MarkdownRender/MarkdownRender'
 // 折叠Markdown部分的css
 const flodMD = {height: 800, overflow: 'hidden',marginBottom: 20}
 // 展开markdown部分的css
@@ -11,7 +11,11 @@ function Blog({id, title, label, time, visit, content, isPriview=false }) {
   const [isFolded, setIsFoded] = useState(isPriview)
 
   return (
-    <div className="root">
+    <div className="root" style={{
+      background: '#fff',
+      padding: '50px 20px',
+      margin: '50px 0',
+      borderRadius: '10px'}}>
       <Row type="flex" justify="center">
         <Col span={12} style={{fontSize: '20px', textAlign: 'center', fontWeight: 600}}>{title}</Col>
       </Row>
@@ -35,16 +39,7 @@ function Blog({id, title, label, time, visit, content, isPriview=false }) {
         :
         null
       }
-        
       </Row>
-      <style jsx>{`
-          .root {
-            background: #fff;
-            padding: 50px 20px;
-            margin: 50px 0;
-            border-radius: 10px;
-          }
-        `}</style>
     </div>
   )
 }

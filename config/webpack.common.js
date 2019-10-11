@@ -62,7 +62,7 @@ const commonConfig = {
       threadPool: happyThreadPool
     }),
     new HappyPack({
-      id: 'scss',
+      id: 'stylus',
       loaders: [
         {
           loader: 'css-loader',
@@ -72,7 +72,7 @@ const commonConfig = {
           }
         },
         'postcss-loader',
-        'sass-loader'
+        'stylus-loader'
       ],
       threadPool: happyThreadPool
     }),

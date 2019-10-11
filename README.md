@@ -1,6 +1,6 @@
 # TheBlog
 
-[![GitHub license](https://img.shields.io/github/license/Reaper622/TheBlog)](https://github.com/Reaper622/TheBlog/blob/master/LICENSE) ![](https://img.shields.io/badge/version-1.0.0-blue)
+[![GitHub license](https://img.shields.io/github/license/Reaper622/TheBlog)](https://github.com/Reaper622/TheBlog/blob/master/LICENSE) ![](https://img.shields.io/badge/version-1.2.0-blue)  [![GitHub stars](https://img.shields.io/github/stars/Reaper622/TheBlog)](https://github.com/Reaper622/TheBlog/stargazers)
 
 A system to build your own blog site.
 

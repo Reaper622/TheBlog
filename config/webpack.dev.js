@@ -28,18 +28,18 @@ const devConfig = {
   module: {
     rules: [
       {
-        test: /\.scss$/,
+        test: /\.styl$/,
         use: [
           'style-loader',
           {
             loader: 'css-loader',
             options: {
-              // scss文件中@import的scss文件也要经过前两个loader
+              // stylus文件中@import的stylus文件也要经过前两个loader
               importLoaders: 2
             }
           },
-          'sass-loader',
-          'postcss-loader'
+          'postcss-loader',
+          'stylus-loader',
         ]
       },
       {

@@ -7,23 +7,22 @@ import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 import { reducer } from './redux/store'
 
-// import 'antd/dist/antd.css'
 import './index.css'
 import 'animate.css/animate.min.css'
 
 // 加载框
-import PageLoading from '@components/PageLoading'
+import PageLoading from '@components/PageLoading/PageLoading'
 
 // 页面
 // import Index from './Pages/Index'
-import Article from './Pages/Articles'
+import Article from './Pages/Articles/Articles'
 // import Archives from './Pages/Archives'
 // import Friend from './Pages/Friend'
 // 动态路由加载，提升用户感受
 const AsyncIndex = Loadable({
   loading: PageLoading ,
   timeout: 1000,
-  loader: () => import('./Pages/Index')
+  loader: () => import('./Pages/Index/Index')
 })
 // const AsyncArticle = Loadable({
 //   loading: PageLoading ,
@@ -33,12 +32,12 @@ const AsyncIndex = Loadable({
 const AsyncArchives = Loadable({
   loading: PageLoading ,
   timeout: 1000,
-  loader: () => import('./Pages/Archives')
+  loader: () => import('./Pages/Archives/Archives')
 })
 const AsyncFriend = Loadable({
   loading: PageLoading ,
   timeout: 1000,
-  loader: () => import('./Pages/Friend')
+  loader: () => import('./Pages/Friend/Friend')
 })
 
 const store = createStore(reducer, compose(

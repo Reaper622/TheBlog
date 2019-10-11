@@ -1,11 +1,11 @@
 import React, {Component} from 'react'
-import TheHeader from '@components/Header'
-import TheFooter from '@components/Footer'
-import Blog from '@components/Blog'
+import TheHeader from '@components/Header/Header'
+import TheFooter from '@components/Footer/Footer'
+import Blog from '@components/Blog/Blog'
 import {Layout, Row, Col} from 'antd'
 import { connect } from 'react-redux'
 import Axios from 'axios'
-import config from '../../config.json'
+import config from '../../../config.json'
 
 const { Content } = Layout
 

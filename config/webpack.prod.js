@@ -21,8 +21,8 @@ const prodConfig = {
         use: [MiniCssExtractPlugin.loader, 'happypack/loader?id=css']
       },
       {
-        test: /\.scss$/,
-        use: [MiniCssExtractPlugin.loader, 'happypack/loader?id=scss']
+        test: /\.styl$/,
+        use: [MiniCssExtractPlugin.loader, 'happypack/loader?id=stylus']
       }
     ]
   },

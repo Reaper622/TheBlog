@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useCallback} from 'react'
 import scroll from '@assets/scroll.png'
 
+import './ScrollTop.styl'
 
 
 function ScrollTop () {
@@ -35,21 +36,6 @@ function ScrollTop () {
     return (
         <div className={`scroll ${show ? 'showStyle': 'hiddenStyle' }`} onClick={backTop}>
             <img  src={scroll} />
-            <style jsx>{`
-                .scroll {
-                    position: fixed;
-                    z-index: 10000;
-                    transition: top .5s linear;
-                    cursor: pointer;
-                    right: 200px;
-                }
-                .showStyle {
-                    top: -300px;
-                }
-                .hiddenStyle {
-                   top: -1060px;
-                }
-            `}</style>
         </div>
     )
 }
