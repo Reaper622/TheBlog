@@ -1,14 +1,16 @@
 import React, {Component} from 'react'
-import TheHeader from '@components/Header'
+import TheHeader from '@components/Header/Header'
 import {Link} from 'react-router-dom'
 import Axios from 'axios'
 import {Layout, Row, Col} from 'antd'
 import { connect } from 'react-redux'
-import {loadBlogs} from '../redux/store'
-import TheFooter from '@components/Footer'
-import config from '../../config.json'
+import {loadBlogs} from '../../redux/store'
+import TheFooter from '@components/Footer/Footer'
+import config from '../../../config.json'
 
 const { Content } = Layout
+
+import './Archives.styl'
 
 const Article = (blog) => (
   <div style={{height: '40px', fontSize: '16px', lineHeight: '40px', margin: '5px 0'}}>
@@ -63,15 +65,6 @@ class Archives extends Component {
           </Row>
         </Content>
         <TheFooter></TheFooter>
-        <style jsx>{`
-            .articleLink {
-              color: #666;
-              transition: all .25s linear;
-            }
-            .articleLink:hover {
-              color: #1890FF;
-            }
-          `}</style>
       </Layout>
     )
   }

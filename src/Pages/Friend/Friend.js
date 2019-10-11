@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
-import TheHeader from '@components/Header'
+import TheHeader from '@components/Header/Header'
 import {Layout, Row, Col, Card, Avatar, Icon, Button} from 'antd'
 import { connect } from 'react-redux'
-import TheFooter from '@components/Footer'
-import config from '../../config.json'
+import TheFooter from '@components/Footer/Footer'
+import config from '../../../config.json'
 
 const { Content } = Layout
 
@@ -59,8 +59,6 @@ class Friend extends Component {
           </Row>
         </Content>
         <TheFooter></TheFooter>
-        <style jsx>{`
-          `}</style>
       </Layout>
     )
   }

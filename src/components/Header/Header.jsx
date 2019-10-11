@@ -2,8 +2,10 @@ import React, { useState, useCallback } from 'react'
 import {withRouter, Link} from 'react-router-dom'
 import { Layout, Menu, Icon, Row, Col, Avatar, Dropdown } from 'antd'
 import BackgroundPic from '@assets/bg.jpg'
-import config from '../../config.json'
-import ScrollTop from './ScrollTop'
+import config from '../../../config.json'
+import ScrollTop from '../ScrollTop/ScrollTop'
+
+import './Header.styl'
 
 const { Header } = Layout
 
@@ -65,56 +67,6 @@ function TheLayout({location, history}) {
             </div>
           </Col>
         </Row>
-        <style jsx>{`
-        .layout-header {
-          padding: 0px;
-          height: 600px;
-          background: url(${BackgroundPic});
-          background-size: 100%;
-          position: relative;
-          margin-bottom: 75px;
-        }
-        .header-menu {
-          width: 100%;
-          line-height: 40px;
-          padding-left: 200px;
-          background: rgba(122, 123, 126, 0.5);
-          border: 0;
-          color: #fff;
-        }
-        .menu-item {
-          margin: 0px 5px;
-        }
-        .intro {
-          width: 100%;
-          height: 250px;
-          background: rgba(160, 216, 243, 0.5);
-          border-radius: 5px;
-        }
-        .bio {
-          text-align: center;
-          font-size: 24px;
-          font-weight: 800;
-        }
-        .github-right {
-          color: #fff;
-          font-size: 20px;
-          float: right;
-          margin-right: 20px;
-        }
-    `}</style>
-    <style global jsx>
-      {`
-      .ant-dropdown-menu-item-active {
-          color: #1890FF;
-          background:rgba(160, 216, 243, 0.5);
-        }
-        .ant-dropdown-menu-item:hover {
-          color: #1890FF;
-          background:rgba(160, 216, 243, 0.5);
-        }
-      `}
-    </style>
       </Header>
   )
 }
