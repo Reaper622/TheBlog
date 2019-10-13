@@ -10,7 +10,7 @@ function TheFooter () {
     <Footer style={{background: '#232323', color: '#fff'}}>
       <Row type="flex" justify="center">
         <Col span={12} style={{textAlign: 'center'}}>
-            托管于<a href="https://github.com/Reaper622/TheBlog">GitHub</a>, <a href="https://www.qiniu.com/">七牛云</a>提供CDN服务
+            托管于<a href="https://github.com/Reaper622/TheBlog">GitHub</a>, <a href="https://www.qiniu.com/">七牛云</a>提供CDN服务, <a href="https://developers.google.cn/analytics">Google Analytics</a> 提供网站统计服务 
         </Col>
       </Row>
       <Row type="flex" justify="center">
