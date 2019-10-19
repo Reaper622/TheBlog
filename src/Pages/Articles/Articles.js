@@ -7,6 +7,8 @@ import { connect } from 'react-redux'
 import Axios from 'axios'
 import config from '../../../config.json'
 
+import './Articles.styl'
+
 const { Content } = Layout
 
 @connect(
@@ -52,7 +54,7 @@ class Article extends Component {
         <TheHeader></TheHeader>
         <Content>
           <Row>
-            <Col offset={4}  span={12} >    
+            <Col xs={{span:24}} xl={{offset:4, span:12}} xxl={{offset:4, span:12}}>    
               {this.state.blog  ? <Blog {...this.state.blog} /> : 456 }  
             </Col>
           </Row>

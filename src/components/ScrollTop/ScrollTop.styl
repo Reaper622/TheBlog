@@ -1,13 +1,14 @@
-.scroll {
-    position: fixed;
-    z-index: 10000;
-    transition: top .5s linear;
-    cursor: pointer;
-    right: 200px;
-}
-.showStyle {
-    top: -300px;
-}
-.hiddenStyle {
-    top: -1060px;
-}
+@import '~@utils/mixins'
+
+.scroll 
+    position fixed
+    z-index 10000
+    transition top .5s linear
+    cursor pointer
+    right 10vw
+    dont-display-mobile(960px)
+.showStyle 
+    top -30vh
+
+.hiddenStyle 
+    top -200vh

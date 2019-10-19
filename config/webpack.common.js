@@ -20,7 +20,8 @@ const commonConfig = {
     // 别名 可以用来定义快捷路径
     alias: {
       '@components': path.resolve(__dirname, '../src/components'),
-      '@assets': path.resolve(__dirname, '../src/assets')
+      '@assets': path.resolve(__dirname, '../src/assets'),
+      '@utils': path.resolve(__dirname, '../src/Utils')
     }
   },
   module: {

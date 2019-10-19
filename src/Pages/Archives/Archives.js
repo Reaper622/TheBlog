@@ -13,7 +13,7 @@ const { Content } = Layout
 import './Archives.styl'
 
 const Article = (blog) => (
-  <div style={{height: '40px', fontSize: '16px', lineHeight: '40px', margin: '5px 0'}}>
+  <div className="article-title">
       <span>-</span>
       <Link to={`/articles/${blog.id}`} className="articleLink">
         <span style={{margin: '0 10px'}}>{blog.time}</span>
@@ -54,10 +54,10 @@ class Archives extends Component {
         <TheHeader></TheHeader>
         <Content>
           <Row>
-            <Col offset={4}  span={12}  style={{background: '#fff', minHeight: '600px' , padding: '20px 0'}}>
+            <Col className="main"  xs={{span:24}} xl={{offset:4, span:12}} xxl={{offset:4, span:12}}  >
               <Row>
-                <Col offset={2}>
-                  <span style={{height: '50px', fontSize: '20px', lineHeight: '50px'}}>目前共计 {this.props.blogs ? this.props.blogs.length : 0} 篇博客</span>
+                <Col xs={{offset:0}} xl={{offset:2}} xxl={{offset:2}}>
+                  <span className="blog-title">目前共计 {this.props.blogs ? this.props.blogs.length : 0} 篇博客, ⁽⁽٩(๑˃̶͈̀ ᗨ ˂̶͈́)۶⁾⁾继续加油！</span>
                   {this.props.blogs ? this.props.blogs.map(blog => <Article key={blog.id} {...blog} />) : null}
                 </Col>
               </Row>
