@@ -58,11 +58,12 @@ articles/
 ```
 npm run build
 ```
-
+- 如要使用 HTTPS 服务则提前将SSL证书的 ssl.crt 与 ssl.key 存放在 server/ssl 目录中
 - 执行服务端运行指令
 
 ```
-npm run server
+npm run server // http
+npm run server:ssl // https
 ```
 
 - 访问 [localhost:4000](locahost:4000) 即可访问 
