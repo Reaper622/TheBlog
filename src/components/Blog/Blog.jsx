@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { withRouter, Link } from 'react-router-dom'
 import {Row, Col, Icon, Button} from 'antd'
 import MDRender from '../MarkdownRender/MarkdownRender'
+import './blog.styl'
 // 折叠Markdown部分的css
 const flodMD = {height: 800, overflow: 'hidden',marginBottom: 20}
 // 展开markdown部分的css
@@ -11,13 +12,9 @@ function Blog({id, title, label, time, visit, content, isPriview=false }) {
   const [isFolded, setIsFoded] = useState(isPriview)
 
   return (
-    <div className="root" style={{
-      background: '#fff',
-      padding: '50px 20px',
-      margin: '50px 0',
-      borderRadius: '10px'}}>
+    <div className="blog">
       <Row type="flex" justify="center">
-        <Col span={12} style={{fontSize: '20px', textAlign: 'center', fontWeight: 600}}>{title}</Col>
+        <Col span={12} className='title' style={{fontSize: '20px', textAlign: 'center', fontWeight: 600}}>{title}</Col>
       </Row>
       <Row type="flex" justify="space-around">
         <Col span={6} style={{textAlign: 'center', color: '#FF3F1A'}}><Icon type="tag" />{label}</Col>
@@ -26,12 +23,12 @@ function Blog({id, title, label, time, visit, content, isPriview=false }) {
       </Row>
       <Row>
         <Col span={24} style={isFolded ? flodMD : openMD}>
-          <MDRender content={content} isBase64={false}  />
+          <MDRender  content={content} isBase64={false}  />
         </Col>
       </Row>
       <Row type="flex" justify="center">
         {isFolded ? 
-        <Col span={2}>
+        <Col>
           <Link to={`/articles/${id}`}>
             <Button type="primary" size="default" >阅读全文<Icon type="right" /></Button>
           </Link>

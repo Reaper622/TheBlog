@@ -1,0 +1,43 @@
+@import '~@utils/mixins'
+
+.main
+    background: #fff 
+    min-height: 600px 
+    margin-top 5vh
+    padding: 20px 50px
+    a
+        color black
+.aside
+    background #fff
+    min-height 300px
+    margin-top 100px 
+    padding 20px 0 
+    dont-display-mobile(960px)
+
+.card
+    display inline-block
+    margin 20px 10px
+    width 250px
+    height 350px
+    border-radius 5px
+    border 2px solid gray
+    overflow hidden
+    transition .2s box-shadow linear 
+    &:hover
+        box-shadow 0 5px 10px 0 #888
+    img
+        position relative
+        width 250px
+        height 250px
+    .content
+        position relative
+        width 250px
+        height 100px
+        text-align center
+        .name
+            font-size 20px
+        .intro-content
+            font-size 14px
+            color rgba(122, 123, 126, 0.5)
+
+            

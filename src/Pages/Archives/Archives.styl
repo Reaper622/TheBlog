@@ -1,7 +1,26 @@
-.articleLink {
-    color: #666;
-    transition: all .25s linear;
-}
-.articleLink:hover {
-    color: #1890FF;
-}
+.main
+    background #fff
+    minHeight 600px
+    margin-top 5vh
+    padding 20px 0
+.articleLink 
+    color #666
+    transition all .25s linear
+
+.articleLink:hover 
+    color #1890FF
+.blog-title
+    height 50px
+    fontSize 20px
+    lineHeight 50px
+    
+.article-title
+    height 40px
+    font-size 16px
+    line-height 40px
+    margin 5px 0
+    @media screen and (max-width 960px)
+        overflow hidden
+        text-overflow ellipsis
+        white-space nowrap
+

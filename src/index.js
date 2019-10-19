@@ -7,8 +7,8 @@ import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 import { reducer } from './redux/store'
 
-import './index.css'
-import 'animate.css/animate.min.css'
+import './index.styl'
+// import 'animate.css/animate.min.css'
 
 // 加载框
 import PageLoading from '@components/PageLoading/PageLoading'

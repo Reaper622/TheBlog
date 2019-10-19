@@ -59,13 +59,13 @@ class Index extends Component {
                 classNames='fade'
                 appear={true}
                 >
-            <Col offset={4}  span={12} style={{minHeight: '600px'}} >
+            <Col xs={{span:24}} xl={{offset:4, span:12}} xxl={{offset:4, span:12}} style={{minHeight: '600px'}} >
                 { this.props.blogsToShow ? this.props.blogsToShow.map(blog => <Blog key={blog.id} {...blog} isPriview={true} />) : <div></div>}
             </Col>
           </CSSTransition>
           </Row>
           <Row style={{margin: '20px 0 50px'}}>
-            <Col offset={4} span={12} style={{padding: '20px 0', background: '#fff', display: 'flex', justifyContent: 'center'}}>
+            <Col xs={{span:24}} xl={{offset:4, span:12}} xxl={{offset:4, span:12}}  style={{padding: '20px 0', background: '#fff', display: 'flex', justifyContent: 'center'}}>
               <Pagination defaultCurrent={1} defaultPageSize={5} total={this.props.blogsCount} onChange={(page) => this.handlePageChange(page)} />
             </Col>
           </Row>
