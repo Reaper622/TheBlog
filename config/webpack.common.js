@@ -33,16 +33,18 @@ const commonConfig = {
         use: ['happypack/loader?id=babel']
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
-        use: [{
+        test: /\.(png|svg|jpg|gif|webp)$/,
+        use: [
+          {
           loader: 'url-loader',
           options: {
             // 30KB 以下大小的图片文件用base64编码来减少请求次数
-            limit: 1024 - 30,
+            limit: 1024 * 30,
             // 超出 30KB 的图片仍用 file-loader压缩
             fallback: 'file-loader'
           }
-        }]
+        }
+      ]
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,

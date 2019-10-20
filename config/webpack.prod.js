@@ -6,6 +6,7 @@ const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
 const ModuleConcatenationPlugin = require('webpack/lib/optimize/ModuleConcatenationPlugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
 
 const prodConfig = {
   mode: 'production',
@@ -65,7 +66,15 @@ const prodConfig = {
         }
       }
     }),
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
+    new ImageminPlugin({
+      pngquant: {
+        quality: '95-100'
+      },
+      jpegtran: {
+        progressive: true
+      }
+    })
   ],
   optimization: {
     // 代码分割
