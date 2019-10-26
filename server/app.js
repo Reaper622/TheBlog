@@ -16,8 +16,7 @@ const app = new Koa()
 
 updateBlog()
 
-// 强制转化 http 请求为 https
-app.use(sslify());
+
 
 // 允许跨域
 app.use(cors({
@@ -38,11 +37,24 @@ app.use(router.routes()).use(router.allowedMethods())
 
 app.use(koaStatic(path.join(__dirname, '../dist')))
 
-const options = {
-  key: fs.readFileSync(path.join(__dirname, './ssl/ssl.key')),
-  cert: fs.readFileSync(path.join(__dirname, './ssl/ssl.crt'))
+const argvs = process.argv.slice(2)
+console.log(argvs[0])
+
+if (argvs[0] && argvs[0].split('=')[1] === 'true') {
+  // 强制转化 http 请求为 https
+  app.use(sslify());
+
+  const options = {
+    key: fs.readFileSync(path.join(__dirname, './ssl/ssl.key')),
+    cert: fs.readFileSync(path.join(__dirname, './ssl/ssl.crt'))
+  }
+  
+  https.createServer(options, app.callback()).listen(4000, () => {
+    console.log(`Server is running at 4000 port with SSL`)
+  })
+} else {
+  app.listen(4000, () => {
+    console.log(`Server is running at 4000 port`)
+  })
 }
 
-https.createServer(options, app.callback()).listen(4000, () => {
-  console.log(`Server is running at 4000 port`)
-})

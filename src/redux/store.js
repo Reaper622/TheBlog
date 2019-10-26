@@ -4,20 +4,19 @@ import axios from 'axios'
 const UPLOAD_BLOGS = 'UPLOAD_BLOGS'
 const GET_BLOGS_BY_PAGE = 'GET_BLOGS_BY_PAGE'
 
-
 // 初始state
 const initState = {
 
 }
 
 // reducer
-export function reducer(state=initState, action) {
-  switch(action.type){
+export function reducer (state = initState, action) {
+  switch (action.type) {
     case UPLOAD_BLOGS: {
-      return {...state, blogs: action.payload.blogs, blogsCount: action.payload.blogCount}
+      return { ...state, blogs: action.payload.blogs, blogsCount: action.payload.blogCount }
     }
     case GET_BLOGS_BY_PAGE: {
-      return {...state, blogsToShow: action.payload.blogs, blogsCount: action.payload.blogCount}
+      return { ...state, blogsToShow: action.payload.blogs, blogsCount: action.payload.blogCount }
     }
     default: return state
   }
@@ -25,7 +24,7 @@ export function reducer(state=initState, action) {
 
 // action creators
 // 加载博客
-export function loadBlogs(data) {
+export function loadBlogs (data) {
   return dispatch => {
     dispatch({
       type: UPLOAD_BLOGS,
@@ -35,11 +34,11 @@ export function loadBlogs(data) {
 }
 
 // 分页加载博客
-export function loadBlogsByPage(data) {
+export function loadBlogsByPage (data) {
   return dispatch => {
-        dispatch({
-          type: GET_BLOGS_BY_PAGE,
-          payload: data
-        })
+    dispatch({
+      type: GET_BLOGS_BY_PAGE,
+      payload: data
+    })
   }
 }

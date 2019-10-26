@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import {BrowserRouter, HashRouter, Route, Switch} from 'react-router-dom'
-import {createStore, applyMiddleware, compose} from 'redux'
+import { BrowserRouter, HashRouter, Route, Switch } from 'react-router-dom'
+import { createStore, applyMiddleware, compose } from 'redux'
 import Loadable from 'react-loadable'
 import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
@@ -20,7 +20,7 @@ import Article from './Pages/Articles/Articles'
 // import Friend from './Pages/Friend'
 // 动态路由加载，提升用户感受
 const AsyncIndex = Loadable({
-  loading: PageLoading ,
+  loading: PageLoading,
   timeout: 1000,
   loader: () => import('./Pages/Index/Index')
 })
@@ -30,21 +30,20 @@ const AsyncIndex = Loadable({
 //   loader: () => import('./Pages/Articles')
 // })
 const AsyncArchives = Loadable({
-  loading: PageLoading ,
+  loading: PageLoading,
   timeout: 1000,
   loader: () => import('./Pages/Archives/Archives')
 })
 const AsyncFriend = Loadable({
-  loading: PageLoading ,
+  loading: PageLoading,
   timeout: 1000,
   loader: () => import('./Pages/Friend/Friend')
 })
 
 const store = createStore(reducer, compose(
   applyMiddleware(thunk),
-  window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__(): f => f
+  window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : f => f
 ))
-
 
 class App extends Component {
   render () {
@@ -52,13 +51,13 @@ class App extends Component {
       <Provider store={store}>
         {/* <BrowserRouter> */}
         <HashRouter>
-            <Switch>
-              <Route path='/' exact component={AsyncIndex} />
-              <Route path='/articles/:id' component={Article} />
-              <Route path='/archives' component={AsyncArchives} />
-              <Route path='/friend' component={AsyncFriend} />
-            </Switch>
-          </HashRouter>
+          <Switch>
+            <Route path='/' exact component={AsyncIndex} />
+            <Route path='/articles/:id' component={Article} />
+            <Route path='/archives' component={AsyncArchives} />
+            <Route path='/friend' component={AsyncFriend} />
+          </Switch>
+        </HashRouter>
         {/* </BrowserRouter> */}
       </Provider>
     )
