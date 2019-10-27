@@ -53,9 +53,16 @@ async function getData() {
   return dataList
 }
 
-
+// 获取全部文章
 async function getArchives() {
   let sql = `select * from blog group by YEAR(time)`
+  let result = await query(sql)
+  return result
+}
+
+// 获取文章热榜
+async function getHotArticle() {
+  let sql = `select * from blog order by visit desc limit 5`
   let result = await query(sql)
   return result
 }
@@ -67,5 +74,6 @@ module.exports = {
   getBlogPage,
   getBlogCount,
   getSingleBlog,
-  setBlogRead
+  setBlogRead,
+  getHotArticle
 }

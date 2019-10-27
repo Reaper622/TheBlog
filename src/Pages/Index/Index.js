@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import TheHeader from '@components/Header/Header'
 import TheFooter from '@components/Footer/Footer'
 import Blog from '@components/Blog/Blog'
+import SideMenu from '@components/SideMenu/SideMenu'
 import Axios from 'axios'
 import { Layout, Row, Col, Pagination } from 'antd'
 import { connect } from 'react-redux'
-import { loadBlogsByPage } from '../../redux/store'
+import { loadBlogsByPage, loadHotArticles } from '../../redux/store'
 import config from '../../../config.json'
 import { CSSTransition } from 'react-transition-group'
 
@@ -15,7 +16,7 @@ const { Content } = Layout
 
 @connect(
   state => state,
-  { loadBlogsByPage }
+  { loadBlogsByPage, loadHotArticles }
 )
 class Index extends Component {
   constructor (props) {
@@ -27,6 +28,7 @@ class Index extends Component {
 
   componentDidMount () {
     this.getBlogs(0)
+    this.getHotArticles()
   }
 
   getBlogs (page) {
@@ -37,6 +39,13 @@ class Index extends Component {
         })
         this.setState({ loaded: true })
         this.props.loadBlogsByPage(res.data)
+      })
+  }
+
+  getHotArticles () {
+    Axios.get(`${config.server_url}/blog/gethotarticle`)
+      .then(res => {
+        this.props.loadHotArticles(res.data)
       })
   }
 
@@ -61,6 +70,9 @@ class Index extends Component {
                 { this.props.blogsToShow ? this.props.blogsToShow.map(blog => <Blog key={blog.id} {...blog} isPriview={true} />) : <div></div>}
               </Col>
             </CSSTransition>
+            <Col xs={{ span: 0}} xl={{offset: 1, span: 5}} xxl={{offset: 1, span: 5}}>
+                {this.props.hotArticles ? <SideMenu hotArticles={this.props.hotArticles} /> : null}
+            </Col>
           </Row>
           <Row style={{ margin: '20px 0 50px' }}>
             <Col xs={{ span: 24 }} xl={{ offset: 4, span: 12 }} xxl={{ offset: 4, span: 12 }} style={{ padding: '20px 0', background: '#fff', display: 'flex', justifyContent: 'center' }}>

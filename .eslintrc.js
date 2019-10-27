@@ -19,6 +19,8 @@ module.exports = {
         "react/jsx-uses-react": 1, // 防止在 JSX 中使用的变量被错误的标记为未使用
         "react/jsx-uses-vars": 1, // 防止 React 被错误的标记为未使用
         "react/react-in-jsx-scope": 2, // 使用 JSX 时防止丢失 React
+        'no-tabs': 'off',
+        'indent': 'tab'
     },
     "plugins": [
         "react"

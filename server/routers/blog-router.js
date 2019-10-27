@@ -22,6 +22,10 @@ router.get('/plusvisit/:id', async (ctx) => {
   ctx.body = await articleHandler.plusVisit(id)
 })
 
+router.get('/gethotarticle', async (ctx) => {
+  ctx.body = await articleHandler.hotArticle()
+})
+
 // router.get('/getarchives', async (ctx) => {
 //   ctx.set('Content-Type', 'application')
 //   ctx.body = await archives.getBlogsArchives()

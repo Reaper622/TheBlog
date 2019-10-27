@@ -3,6 +3,7 @@ import axios from 'axios'
 // TYPE
 const UPLOAD_BLOGS = 'UPLOAD_BLOGS'
 const GET_BLOGS_BY_PAGE = 'GET_BLOGS_BY_PAGE'
+const UPLOAD_HOTARTICLES = 'UPLOAD_HOTARTICLES'
 
 // 初始state
 const initState = {
@@ -17,6 +18,9 @@ export function reducer (state = initState, action) {
     }
     case GET_BLOGS_BY_PAGE: {
       return { ...state, blogsToShow: action.payload.blogs, blogsCount: action.payload.blogCount }
+    }
+    case UPLOAD_HOTARTICLES: {
+      return {...state, hotArticles: action.payload}
     }
     default: return state
   }
@@ -38,6 +42,16 @@ export function loadBlogsByPage (data) {
   return dispatch => {
     dispatch({
       type: GET_BLOGS_BY_PAGE,
+      payload: data
+    })
+  }
+}
+
+// 加载热榜
+export function loadHotArticles (data) {
+  return dispatch => {
+    dispatch({
+      type: UPLOAD_HOTARTICLES,
       payload: data
     })
   }
