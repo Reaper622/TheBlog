@@ -1,6 +1,6 @@
 const path = require('path')
 const fs = require('fs')
-const { insertBlogs, getData, getBlogPage, getBlogCount, getSingleBlog, setBlogRead } = require('../services/db')
+const { insertBlogs, getData, getBlogPage, getBlogCount, getSingleBlog, setBlogRead, getHotArticle } = require('../services/db')
 
 const sourceHandler = require('../utils/source-handler')
 const articleRoot = path.join(__dirname, '../../articles')
@@ -45,11 +45,16 @@ async function getSingleBlogContent(id) {
 
 async function plusVisit(id) {
   const result = await setBlogRead(id)
-  console.log(result)
+  return result
+}
+
+// 获取热榜
+async function hotArticle() {
+  const result = await getHotArticle()
   return result
 }
 
 
 
 
-module.exports = { updateBlog, getBlogs, getBlogByPage, getSingleBlogContent, plusVisit }
+module.exports = { updateBlog, getBlogs, getBlogByPage, getSingleBlogContent, plusVisit, hotArticle }
