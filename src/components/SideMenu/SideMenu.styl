@@ -1,0 +1,33 @@
+@import '~@utils/mixins'
+.side-menu
+    margin 50px 0
+    width 400px
+    height 400px
+    background #ffffff
+    border-radius 5px
+    dont-display-mobile(960px)
+    img
+        margin 10px 10% 
+        width 80%
+    ul
+        width 100%
+        li
+            height 20px
+            line-height 14px
+            justify-content space-between
+            font-size 14px
+            margin 5px 0
+            .title
+                display inline-block
+                width 70%
+                height 14px
+                overflow hidden
+                white-space nowrap
+                text-overflow ellipsis
+            span 
+                display inline-block
+                width 30%
+.affix
+    position fixed
+    top 0
+                

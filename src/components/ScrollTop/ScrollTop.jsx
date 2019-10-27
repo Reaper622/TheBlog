@@ -28,7 +28,7 @@ function ScrollTop () {
   useEffect(() => {
     window.addEventListener('scroll', handleScroll, true)
     return () => {
-      window, removeEventListener('scroll', handleScroll, true)
+      window.removeEventListener('scroll', handleScroll, true)
     };
   }, [])
 
