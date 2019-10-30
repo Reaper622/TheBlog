@@ -7,7 +7,6 @@ function SideMenu ({hotArticles}) {
 	const [affix, setAffix] = useState(false)
 	const sidemenu = useRef(null)
 	useEffect(() => {
-		console.log(sidemenu)
 		window.addEventListener('scroll', handleScroll, true)
 		return () => {
 			window.removeEventListener('scroll', handleScroll, true)
@@ -16,7 +15,7 @@ function SideMenu ({hotArticles}) {
 
 	const handleScroll = useCallback(
     () => {
-			let scrollTop = document.documentElement.scrollTop
+	  	let scrollTop = document.documentElement.scrollTop
       if (scrollTop > 600) {
         setAffix(true)
       } else {

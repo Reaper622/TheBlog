@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, useRef } from 'react'
 import scroll from '@assets/scroll.png'
 
 import './ScrollTop.styl'
 
 function ScrollTop () {
   const [show, setShow] = useState(false)
-
+  const scrolling = useRef(false)
   const handleScroll = useCallback(
     () => {
       let scrollTop = document.documentElement.scrollTop
@@ -26,7 +26,19 @@ function ScrollTop () {
   }
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll, true)
+    // 添加函数节流
+    window.addEventListener('scroll', function () {
+			// 如果正在滚动 直接return
+			if (scrolling.current) {
+				return
+			}
+			scrolling.current = true
+			
+			setTimeout(() => {
+				handleScroll()
+				scrolling.current = false
+			}, 300)
+		}, true)
     return () => {
       window.removeEventListener('scroll', handleScroll, true)
     };
