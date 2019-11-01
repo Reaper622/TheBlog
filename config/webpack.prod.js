@@ -28,6 +28,7 @@ const prodConfig = {
     ]
   },
   output: {
+    publicPath: '/',
     filename: '[name].[hash].js',
     chunkFilename: '[name].[hash].js'
   },
