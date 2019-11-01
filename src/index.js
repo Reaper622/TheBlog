@@ -49,16 +49,16 @@ class App extends Component {
   render () {
     return (
       <Provider store={store}>
-        {/* <BrowserRouter> */}
-        <HashRouter>
+        <BrowserRouter>
+        {/* <HashRouter> */}
           <Switch>
             <Route path='/' exact component={AsyncIndex} />
             <Route path='/articles/:id' component={Article} />
             <Route path='/archives' component={AsyncArchives} />
             <Route path='/friend' component={AsyncFriend} />
           </Switch>
-        </HashRouter>
-        {/* </BrowserRouter> */}
+        {/* </HashRouter> */}
+        </BrowserRouter>
       </Provider>
     )
   }
