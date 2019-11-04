@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useRef, useCallback} from 'react'
 import './SideMenu.styl'
 import { Link } from 'react-router-dom'
-import BingGuoPic from '@assets/bingguo.webp'
+import BingGuoPic from '@assets/bingguo.jpg'
 
 function SideMenu ({hotArticles}) {
 	const [affix, setAffix] = useState(false)

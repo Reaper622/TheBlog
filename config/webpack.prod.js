@@ -73,7 +73,8 @@ const prodConfig = {
         quality: '95-100'
       },
       jpegtran: {
-        progressive: true
+        progressive: true,
+        quality: '90'
       }
     })
   ],
