@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component} from 'react'
 import TheHeader from '@components/Header/Header'
 import { Link } from 'react-router-dom'
 import Axios from 'axios'
@@ -52,7 +52,7 @@ class Archives extends Component {
         <TheHeader></TheHeader>
         <Content>
           <Row>
-            <Col className="main" xs={{ span: 24 }} xl={{ offset: 4, span: 12 }} xxl={{ offset: 4, span: 12 }} >
+            <Col className="main-content" xs={{ span: 24 }} xl={{ offset: 4, span: 12 }} xxl={{ offset: 4, span: 12 }} >
               <Row>
                 <Col xs={{ offset: 0 }} xl={{ offset: 2 }} xxl={{ offset: 2 }}>
                   <span className="blog-title">目前共计 {this.props.blogs ? this.props.blogs.length : 0} 篇博客, ⁽⁽٩(๑˃̶͈̀ ᗨ ˂̶͈́)۶⁾⁾继续加油！</span>
