@@ -51,8 +51,8 @@ class Article extends Component {
         <TheHeader></TheHeader>
         <Content>
           <Row>
-            <Col xs={{ span: 24 }} xl={{ offset: 4, span: 12 }} xxl={{ offset: 4, span: 12 }}>
-              {this.state.blog ? <Blog {...this.state.blog} /> : 456 }
+            <Col xs={{ span: 24 }} xl={{ offset: 4, span: 16 }} xxl={{ offset: 4, span: 16 }}>
+              {this.state.blog ? <Blog {...this.state.blog} /> : null }
             </Col>
           </Row>
         </Content>
