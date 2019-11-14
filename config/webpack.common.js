@@ -96,6 +96,10 @@ const commonConfig = {
     {
       from: path.resolve(__dirname, '../public/manifest.json'),
       to: path.resolve(__dirname, '../dist'),
+    },
+    {
+      from: path.resolve(__dirname, '../src/service-worker.js'),
+      to: path.resolve(__dirname, '../dist')
     }])
   ],
   output: {

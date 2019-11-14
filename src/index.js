@@ -6,6 +6,7 @@ import Loadable from 'react-loadable'
 import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 import { reducer } from './redux/store'
+import './service-worker.js'
 
 import './index.styl'
 // import 'animate.css/animate.min.css'
@@ -69,4 +70,15 @@ ReactDOM.render(<App />, document.getElementById('root'))
 // 模块热更替开启
 if (module.hot) {
   module.hot.accept()
+}
+
+// 注册 service-worker
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('/service-worker.js').then( function (registration) {
+      console.log(`service worker 在 ${registration.scope} 范围下注册成功`);
+    }, function (err) {
+      console.log('service worker 注册失败', err)
+    })
+  })
 }
