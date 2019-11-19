@@ -22,6 +22,17 @@ const LinkMeMore = (
   </Menu>
 )
 
+const KnowLedge = (
+  <Menu style={{ background: 'rgba(122, 123, 126, 0.5)' }}>
+    <Menu.Item className="menu-item drop-item" key="github" >
+      <a style={{ color: '#fff' }} target="_blank" href="https://reaperlee.cn/ds-al/">数据结构和算法</a>
+    </Menu.Item>
+    <Menu.Item className="menu-item drop-item" key="juejin" >
+      <a style={{ color: '#fff' }} target="_blank" href="https://reaperlee.cn/dp/">设计模式</a>
+    </Menu.Item>
+  </Menu>
+)
+
 function TheLayout ({ location, history }) {
   const [tabKey, setTabKey] = useState(location.pathname.split('/')[1] || 'index')
   const switchTab = useCallback((index) => {
@@ -47,6 +58,11 @@ function TheLayout ({ location, history }) {
         <Menu.Item className="menu-item" onClick={() => switchTab('/archives')} key="archives"><Icon className="menu-icon" type="folder" />归档</Menu.Item>
         <Menu.Item className="menu-item" onClick={() => switchTab('/friend')} key="friend"><Icon className="menu-icon" type="team" />友链</Menu.Item>
         {/* <Menu.Item className="menu-item" onClick={() => switchTab('message')} key="message"><Icon type="highlight" />留言</Menu.Item> */}
+        <Menu.Item className="menu-item" key="knowledge">
+          <Dropdown overlay={KnowLedge} placement="bottomCenter" trigger={['hover']} overlayStyle={{ width: 120, backgroundColor: 'rgba(122, 123, 126, 0.5)' }}>
+            <span><Icon className="menu-icon" type="deployment-unit" />知识库</span>
+          </Dropdown>
+        </Menu.Item>
         <a href="https://github.com/Reaper622/TheBlog" target="__blank" className="github-right" key="github"><Icon type="github" /> Fork Me</a>
       </Menu>
       <Row className="introArea" type="flex" justify="center" >
