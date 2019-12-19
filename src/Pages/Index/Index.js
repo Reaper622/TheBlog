@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import TheHeader from '@components/Header/Header'
 import TheFooter from '@components/Footer/Footer'
 import Blog from '@components/Blog/Blog'
@@ -6,7 +6,7 @@ import SideMenu from '@components/SideMenu/SideMenu'
 import Axios from 'axios'
 import { Layout, Row, Col, Pagination } from 'antd'
 import { connect } from 'react-redux'
-import { loadBlogsByPage, loadHotArticles } from '../../redux/store'
+import { loadBlogsByPage, loadHotArticles, loadShowPage } from '../../redux/store'
 import config from '../../../config.json'
 import { CSSTransition } from 'react-transition-group'
 
@@ -16,9 +16,9 @@ const { Content } = Layout
 
 @connect(
   state => state,
-  { loadBlogsByPage, loadHotArticles }
+  { loadBlogsByPage, loadHotArticles, loadShowPage }
 )
-class Index extends Component {
+class Index extends PureComponent {
   constructor (props) {
     super(props)
     this.state = {
@@ -27,8 +27,10 @@ class Index extends Component {
   }
 
   componentDidMount () {
-    this.getBlogs(0)
-    this.getHotArticles()
+    if (!this.props.blogsToShow || !this.props.hotArticles) {
+      this.getBlogs(0)
+      this.getHotArticles()
+    }
   }
 
   getBlogs (page) {
@@ -39,6 +41,7 @@ class Index extends Component {
         })
         this.setState({ loaded: true })
         this.props.loadBlogsByPage(res.data)
+        this.props.loadShowPage(page)
       })
   }
 
@@ -76,7 +79,7 @@ class Index extends Component {
           </Row>
           <Row style={{ margin: '20px 0 50px' }}>
             <Col xs={{ span: 24 }} xl={{ offset: 4, span: 12 }} xxl={{ offset: 4, span: 12 }} style={{ padding: '20px 0', background: '#fff', display: 'flex', justifyContent: 'center' }}>
-              <Pagination defaultCurrent={1} defaultPageSize={5} total={this.props.blogsCount} onChange={(page) => this.handlePageChange(page)} />
+              <Pagination defaultCurrent={this.props.showPage} defaultPageSize={5} total={this.props.blogsCount} onChange={(page) => this.handlePageChange(page)} />
             </Col>
           </Row>
         </Content>

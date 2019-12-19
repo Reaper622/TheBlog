@@ -3,7 +3,7 @@ import './SideMenu.styl'
 import { Link } from 'react-router-dom'
 import BingGuoPic from '@assets/bingguo.jpg'
 
-function SideMenu ({hotArticles}) {
+const SideMenu = React.memo (function SideMenu ({hotArticles}) {
 	const [affix, setAffix] = useState(false)
 	const sidemenu = useRef(null)
 	useEffect(() => {
@@ -34,6 +34,6 @@ function SideMenu ({hotArticles}) {
 			</ul>
     </div>
   )
-}
+})
 
 export default SideMenu

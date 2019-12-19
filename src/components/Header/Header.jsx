@@ -33,7 +33,7 @@ const KnowLedge = (
   </Menu>
 )
 
-function TheLayout ({ location, history }) {
+const TheLayout = React.memo(function TheLayout ({ location, history }) {
   const [tabKey, setTabKey] = useState(location.pathname.split('/')[1] || 'index')
   const switchTab = useCallback((index) => {
     setTabKey(index)
@@ -83,5 +83,6 @@ function TheLayout ({ location, history }) {
       </Row>
     </Header>
   )
-}
+})
+
 export default withRouter(TheLayout)

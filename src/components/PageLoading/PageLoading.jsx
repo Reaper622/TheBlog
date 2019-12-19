@@ -3,7 +3,7 @@ import { Spin } from 'antd'
 
 export default () => (
   <div className="root">
-    <Spin style={{
+    <Spin tip="正在极速加载中..." style={{
       position: 'fixed',
       left: 0,
       top: 0,

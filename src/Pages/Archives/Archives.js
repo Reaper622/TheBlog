@@ -1,8 +1,8 @@
-import React, { Component} from 'react'
+import React, { PureComponent} from 'react'
 import TheHeader from '@components/Header/Header'
 import { Link } from 'react-router-dom'
 import Axios from 'axios'
-import { Layout, Row, Col, Spin } from 'antd'
+import { Layout, Row, Col } from 'antd'
 import { connect } from 'react-redux'
 import { loadBlogs } from '../../redux/store'
 import TheFooter from '@components/Footer/Footer'
@@ -28,13 +28,15 @@ const Article = (blog) => (
   state => state,
   { loadBlogs }
 )
-class Archives extends Component {
+class Archives extends PureComponent {
   constructor (props) {
     super(props)
   }
 
   componentDidMount () {
-    this.getArchives()
+    if (!this.props.blogs) {
+      this.getArchives()
+    }
   }
 
   getArchives () {
@@ -57,7 +59,7 @@ class Archives extends Component {
               <Row>
                 <Col xs={{ offset: 0 }} xl={{ offset: 2 }} xxl={{ offset: 2 }}>
                   <span className="blog-title">目前共计 {this.props.blogs ? this.props.blogs.length : 0} 篇博客, ⁽⁽٩(๑˃̶͈̀ ᗨ ˂̶͈́)۶⁾⁾继续加油！</span>
-                  {this.props.blogs ? this.props.blogs.map(blog => <Article key={blog.id} {...blog} />) :<PageLoading />}
+                  {this.props.blogs ? this.props.blogs.map(blog => <Article key={blog.id} {...blog} />) : <PageLoading />}
                 </Col>
               </Row>
             </Col>

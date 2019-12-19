@@ -4,7 +4,7 @@ import BeiAnIcon from '@assets/beian.png'
 
 const { Footer } = Layout
 
-function TheFooter () {
+const TheFooter = React.memo(function TheFooter () {
   return (
     <Footer style={{ background: '#232323', color: '#fff' }}>
       <Row type="flex" justify="center">
@@ -24,6 +24,6 @@ function TheFooter () {
       </Row>
     </Footer>
   )
-}
+})
 
 export default TheFooter

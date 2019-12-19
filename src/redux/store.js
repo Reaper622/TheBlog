@@ -4,6 +4,7 @@ import axios from 'axios'
 const UPLOAD_BLOGS = 'UPLOAD_BLOGS'
 const GET_BLOGS_BY_PAGE = 'GET_BLOGS_BY_PAGE'
 const UPLOAD_HOTARTICLES = 'UPLOAD_HOTARTICLES'
+const UPLOAD_PAGES = 'UPLOAD_PAGES'
 
 // 初始state
 const initState = {
@@ -21,6 +22,9 @@ export function reducer (state = initState, action) {
     }
     case UPLOAD_HOTARTICLES: {
       return {...state, hotArticles: action.payload}
+    }
+    case UPLOAD_PAGES: {
+      return {...state, showPage: action.payload}
     }
     default: return state
   }
@@ -52,6 +56,16 @@ export function loadHotArticles (data) {
   return dispatch => {
     dispatch({
       type: UPLOAD_HOTARTICLES,
+      payload: data
+    })
+  }
+}
+
+// 首页加载页
+export function loadShowPage (data) {
+  return dispatch => {
+    dispatch({
+      type: UPLOAD_PAGES,
       payload: data
     })
   }
