@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import TheHeader from '@components/Header/Header'
 import TheFooter from '@components/Footer/Footer'
 import Blog from '@components/Blog/Blog'
@@ -14,7 +14,7 @@ const { Content } = Layout
 @connect(
   state => state
 )
-class Article extends Component {
+class Article extends PureComponent {
   constructor (props) {
     super(props)
     this.state = {}

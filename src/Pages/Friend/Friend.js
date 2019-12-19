@@ -30,10 +30,6 @@ class Friend extends Component {
     super(props)
   }
 
-  componentDidMount () {
-    console.log(config)
-  }
-
   render () {
     return (
       <Layout>
@@ -45,7 +41,7 @@ class Friend extends Component {
                 {config.friends.length ? config.friends.map(person => <FriendCard {...person} key={person.name} />) : <Col><span>当前还未有友链哦，立即申请吧！</span></Col>}
               </Row>
             </Col>
-            <Col className="aside" offset={1} span={3} >
+            <Col className="aside" xs={{ span: 0}} xl={{ offset: 1, span: 3 }} xxl={{ offset: 1, span: 3 }} >
               <Row type="flex" justify="center">
                 <Col span={12}>
                   <a target="__blank" href="https://github.com/Reaper622/TheBlog/issues"><Button type="primary"><Icon type="bulb" />申请友链</Button></a>
