@@ -1,8 +1,10 @@
 import React, { useState, useCallback } from 'react'
 import { withRouter } from 'react-router-dom'
-import { Layout, Menu, Icon, Row, Col, Dropdown } from 'antd'
+import { Layout, Menu, Icon, Dropdown } from 'antd'
 import config from '../../../config.json'
+
 import ScrollTop from '../ScrollTop/ScrollTop'
+import IntroArea from '../IntroArea/IntroArea'
 
 import './Header.styl'
 
@@ -65,22 +67,7 @@ const TheLayout = React.memo(function TheLayout ({ location, history }) {
         </Menu.Item>
         <a href="https://github.com/Reaper622/TheBlog" target="__blank" className="github-right" key="github"><Icon type="github" /> Fork Me</a>
       </Menu>
-      <Row className="introArea" type="flex" justify="center" >
-        <Col span={12}>
-          <div className="intro">
-            <Row type="flex" justify="center" style={{ paddingTop: '10px' }}>
-              <Col span={4}>
-                <img src={config.avatar_url} alt="头像" style={{ width: '100%', borderRadius: '50%' }} />
-              </Col>
-            </Row>
-            <Row type="flex" justify="center">
-              <Col span={20} className="bio">
-                {config.bio}
-              </Col>
-            </Row>
-          </div>
-        </Col>
-      </Row>
+      <IntroArea config={config} />
     </Header>
   )
 })
