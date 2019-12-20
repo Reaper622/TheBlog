@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import TheHeader from '@components/Header/Header'
 import TheFooter from '@components/Footer/Footer'
 import Blog from '@components/Blog/Blog'
-import { Layout, Row, Col } from 'antd'
+import { Layout, Row, Col, Skeleton } from 'antd'
 import { connect } from 'react-redux'
 import Axios from 'axios'
 import config from '../../../config.json'
@@ -10,6 +10,13 @@ import config from '../../../config.json'
 import './Articles.styl'
 
 const { Content } = Layout
+
+
+const SkeletonBody = () => (
+  <div className="skeleton-body">
+    <Skeleton paragraph={{ rows: 12 }} title active />
+  </div>
+)
 
 @connect(
   state => state
@@ -52,7 +59,7 @@ class Article extends PureComponent {
         <Content>
           <Row>
             <Col xs={{ span: 24 }} xl={{ offset: 4, span: 16 }} xxl={{ offset: 4, span: 16 }}>
-              {this.state.blog ? <Blog {...this.state.blog} /> : null }
+              {this.state.blog ? <Blog {...this.state.blog} /> :  <SkeletonBody /> }
             </Col>
           </Row>
         </Content>

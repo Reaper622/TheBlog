@@ -28,7 +28,7 @@ const AsyncIndex = Loadable({
 // const AsyncArticle = Loadable({
 //   loading: PageLoading ,
 //   timeout: 1000,
-//   loader: () => import('./Pages/Articles')
+//   loader: () => import('./Pages/Articles/Articles')
 // })
 const AsyncArchives = Loadable({
   loading: PageLoading,
