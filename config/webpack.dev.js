@@ -11,7 +11,7 @@ const devConfig = {
     // DevServer 地址， 可设置为 0.0.0.0 来局域网广播
     host: '127.0.0.1',
     // 端口号
-    port: 8090,
+    port: 8080,
     // 开始模块热更替
     hot: true,
     // 及时HMR不生效，也不让浏览器自动刷新
