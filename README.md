@@ -68,3 +68,7 @@ npm run server:ssl // https
 
 - 访问 [localhost:4000](locahost:4000) 即可访问 
 
+
+## 使用 Github Actions 进行 CI/CD
+只需要给自己的仓库添加相应的 secret,并修改`.github/workflow/depoly.yml`文件相关配置,即可实现`git push`之后一键同步到远程服务器。
+
