@@ -1,0 +1,45 @@
+name: Depoly Blog on Server
+
+on: 
+  push:
+    branches: 
+      - master
+  
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Run a one-line script
+      uses: actions/checkout@master
+      
+    - name: Download git submodule
+      uses: srt32/git-actions@v0.0.3
+      with:
+        args: git submodule update --init --recursive
+    - name: use Node.js 10
+      uses: actions/setup-node@v1
+      with:
+        node-version: 10
+    
+    - name: npm install and build
+      run: |
+        npm install
+        npm run build
+      env:
+        CI: true
+    
+    - name: Depoly
+      uses: easingthemes/ssh-deploy@v2.0.7
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
+        ARGS: "-avz --delete"
+        SOURCE: "./dist/"
+        REMOTE_HOST: "118.24.180.102"
+        REMOTE_USER: "root"
+        TARGET: "/home/TheBlog/dist"
