@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { withRouter, Link } from 'react-router-dom'
 import { Row, Col, Icon, Button } from 'antd'
 import MDRender from '../MarkdownRender/MarkdownRender'
-import './blog.styl'
+import './Blog.styl'
 // 折叠Markdown部分的css
 const flodMD = { height: 800, overflow: 'hidden', marginBottom: 20 }
 // 展开markdown部分的css
