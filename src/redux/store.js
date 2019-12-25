@@ -24,7 +24,7 @@ export function reducer (state = initState, action) {
       return {...state, hotArticles: action.payload}
     }
     case UPLOAD_PAGES: {
-      return {...state, showPage: action.payload}
+      return {...state, showPage: action.payload + 1}
     }
     default: return state
   }
