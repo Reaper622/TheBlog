@@ -20,9 +20,12 @@ module.exports = {
         "react/jsx-uses-vars": 1, // 防止 React 被错误的标记为未使用
         "react/react-in-jsx-scope": 2, // 使用 JSX 时防止丢失 React
         'no-tabs': 'off',
-        'indent': 'tab'
+        'indent': 'tab',
+        "react-hooks/rules-of-hooks": "error", // 检查 Hook 的规则
+        "react-hooks/exhaustive-deps": "warn" // 检查 effect 的依赖
     },
     "plugins": [
-        "react"
+        "react",
+        "react-hooks"
     ]
 };
