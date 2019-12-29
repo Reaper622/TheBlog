@@ -8,6 +8,23 @@ A system to build your own blog site.
 
 线上演示地址: [reaperlee.cn](http://www.reaperlee.cn)
 
+### 预览图
+- PC端首页
+
+![首页](https://github.com/Reaper622/TheBlog/tree/master/preview/PC-1.png)
+
+- PC端文章页
+
+![文章](https://github.com/Reaper622/TheBlog/tree/master/preview/PC-2.png)
+
+- 移动端首页
+
+![移动端首页](https://github.com/Reaper622/TheBlog/tree/master/preview/Mobile-1.png)
+
+- 移动端文章页
+
+![移动端文章](https://github.com/Reaper622/TheBlog/tree/master/preview/Mobile-2.png)
+
 
 
 ### 使用环境
