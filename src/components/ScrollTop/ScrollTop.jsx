@@ -14,7 +14,7 @@ function ScrollTop () {
       } else {
         setShow(false)
       }
-    }
+    },[]
   )
 
   const backTop = () => {
