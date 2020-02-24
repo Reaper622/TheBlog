@@ -1,4 +1,9 @@
-# TheBlog
+
+<h1 align="center">
+  <img src="https://www.reaperlee.cn/favicon.ico" height="200" width="200"/>
+  <p align="center" style="font-size: 0.8em">The Blog</p>
+  <p align="center" style="font-size: 0.5em">A System to build your own blog site.</p>
+</h1>
 
 [![GitHub license](https://img.shields.io/github/license/Reaper622/TheBlog)](https://github.com/Reaper622/TheBlog/blob/master/LICENSE) ![](https://img.shields.io/badge/version-1.2.0-blue)  [![GitHub stars](https://img.shields.io/github/stars/Reaper622/TheBlog)](https://github.com/Reaper622/TheBlog/stargazers)
 
